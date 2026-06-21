@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Inter } from "next/font/google";
+import { Great_Vibes, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+
+const greatVibes = Great_Vibes({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -8,25 +14,19 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-});
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Ana & Miguel — Casamento 12 de Setembro 2026",
+  title: "Fernanda & Gustavo — 14 de Noviembre 2025",
   description:
-    "Convidamos você para celebrar a união de Ana e Miguel no dia 12 de Setembro de 2026, em Luanda, Angola. Confirme a sua presença.",
-  keywords: ["casamento", "wedding", "Ana e Miguel", "convite", "RSVP", "Luanda"],
+    "Convidamos você para celebrar a união de Fernanda e Gustavo no dia 14 de Noviembre de 2025.",
+  keywords: ["casamento", "wedding", "Fernanda e Gustavo", "convite", "RSVP"],
   openGraph: {
-    title: "Ana & Miguel — Casamento 12.09.2026",
+    title: "Fernanda & Gustavo — 14.11.2025",
     description: "Convidamos você para celebrar o nosso dia especial.",
     type: "website",
   },
@@ -38,10 +38,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}
-        style={{ fontFamily: "var(--font-cormorant), var(--font-playfair), serif", background: "#faf6ee" }}
+        className={`${greatVibes.variable} ${playfair.variable} ${inter.variable} antialiased`}
+        style={{
+          fontFamily: "var(--font-inter), sans-serif",
+          background: "#f5f2ed",
+          color: "#333333",
+        }}
       >
         {children}
       </body>
