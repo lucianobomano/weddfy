@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const WEDDING_DATE = new Date('2025-11-14T16:50:00');
 
@@ -27,7 +27,7 @@ export default function CountdownTimer() {
 
   return (
     <div className="flex justify-center gap-1 sm:gap-2 text-white">
-      <TimeBlock value={pad(timeLeft.days)} label="DÍAS" />
+      <TimeBlock value={pad(timeLeft.days)} label="DIAS" />
       <Separator />
       <TimeBlock value={pad(timeLeft.hours)} label="HORAS" />
       <Separator />

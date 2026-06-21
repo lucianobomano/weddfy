@@ -21,12 +21,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fernanda & Gustavo — 14 de Noviembre 2025",
+  title: "Luciano & Auriscidia — 14 de Novembro 2025",
   description:
-    "Convidamos você para celebrar a união de Fernanda e Gustavo no dia 14 de Noviembre de 2025.",
-  keywords: ["casamento", "wedding", "Fernanda e Gustavo", "convite", "RSVP"],
+    "Convidamos você para celebrar a união de Luciano e Auriscidia no dia 14 de Novembro de 2025, em Luanda, Angola.",
+  keywords: ["casamento", "wedding", "Luciano e Auriscidia", "convite", "RSVP", "Luanda"],
   openGraph: {
-    title: "Fernanda & Gustavo — 14.11.2025",
+    title: "Luciano & Auriscidia — 14.11.2025",
     description: "Convidamos você para celebrar o nosso dia especial.",
     type: "website",
   },
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="pt" suppressHydrationWarning>
       <body
         className={`${greatVibes.variable} ${playfair.variable} ${inter.variable} antialiased`}
         style={{
