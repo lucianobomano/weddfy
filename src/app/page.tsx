@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import {
-  MapPin, Clock, Heart, Users, QrCode,
+  MapPin, Clock, Heart, Users, Sparkles,
   CheckCircle, AlertCircle, Loader2, Send,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -192,18 +192,28 @@ function MiddlePanel() {
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image src="/images/couple-dancing.png" alt="Luciano & Auriscidia" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
       </div>
-      <div className="px-4 sm:px-5 py-5 text-white" style={{ background: GREEN }}>
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-2">CÓDIGO DE VESTIR</p>
-            <p className="text-base sm:text-lg font-light" style={{ fontFamily: 'var(--font-playfair)' }}>Elegante</p>
-            <div className="flex items-center gap-1.5 mt-2 opacity-70"><Users className="w-3.5 h-3.5" /><span className="text-[10px]">Branco proibido</span></div>
+      {/* Dress Code — white section, centered */}
+      <div className="px-4 sm:px-5 py-6 bg-white flex flex-col items-center justify-center text-center">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-2">CÓDIGO DE VESTIMENTA</p>
+        <p className="text-xl sm:text-2xl font-light" style={{ fontFamily: 'var(--font-playfair)', color: DARK }}>Elegante</p>
+        <div className="w-8 h-px my-4" style={{ background: GREEN, opacity: 0.4 }} />
+
+        <div className="w-full space-y-3">
+          <div className="flex items-center gap-2.5 justify-center">
+            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-xs text-[#555]">Mulheres: Traje longo ou cocktail elegante</p>
           </div>
-          <div className="text-center">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-sm flex items-center justify-center">
-              <QrCode className="w-10 h-10 sm:w-12 sm:h-12 text-[#333]" />
-            </div>
-            <p className="text-[8px] tracking-[0.2em] uppercase opacity-60 mt-1.5">PRESENTES</p>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-xs text-[#555]">Homens: Terno completo ou camisa e gravata</p>
+          </div>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Heart className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-xs text-[#555]">Branco proibido</p>
+          </div>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-xs text-[#555]">Sapatos confortáveis para a pista de dança</p>
           </div>
         </div>
       </div>
@@ -450,16 +460,28 @@ function MobileContent({ onBack, onOpenRSVP }: { onBack: () => void; onOpenRSVP:
         <Image src="/images/couple-dancing.png" alt="Luciano & Auriscidia" fill className="object-cover" sizes="100vw" />
       </div>
 
-      <div className="px-5 py-5 text-white" style={{ background: GREEN }}>
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-[10px] tracking-[0.3em] uppercase opacity-70 mb-2">CÓDIGO DE VESTIR</p>
-            <p className="text-lg font-light" style={{ fontFamily: 'var(--font-playfair)' }}>Elegante</p>
-            <div className="flex items-center gap-1.5 mt-2 opacity-70"><Users className="w-3.5 h-3.5" /><span className="text-[10px]">Branco proibido</span></div>
+      {/* Dress Code — white section, centered */}
+      <div className="px-5 py-7 bg-white flex flex-col items-center justify-center text-center">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-2">CÓDIGO DE VESTIMENTA</p>
+        <p className="text-2xl sm:text-3xl font-light" style={{ fontFamily: 'var(--font-playfair)', color: DARK }}>Elegante</p>
+        <div className="w-10 h-px my-4" style={{ background: GREEN, opacity: 0.4 }} />
+
+        <div className="w-full max-w-xs mx-auto space-y-3.5">
+          <div className="flex items-center gap-2.5 justify-center">
+            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-sm text-[#555]">Mulheres: Traje longo ou cocktail elegante</p>
           </div>
-          <div className="text-center">
-            <div className="w-14 h-14 bg-white rounded-sm flex items-center justify-center"><QrCode className="w-10 h-10 text-[#333]" /></div>
-            <p className="text-[8px] tracking-[0.2em] uppercase opacity-60 mt-1.5">PRESENTES</p>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-sm text-[#555]">Homens: Terno completo ou camisa e gravata</p>
+          </div>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Heart className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-sm text-[#555]">Branco proibido</p>
+          </div>
+          <div className="flex items-center gap-2.5 justify-center">
+            <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: GREEN }} />
+            <p className="text-sm text-[#555]">Sapatos confortáveis para a pista de dança</p>
           </div>
         </div>
       </div>

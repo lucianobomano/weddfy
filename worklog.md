@@ -117,3 +117,41 @@ Stage Summary:
 - SVG invitation with green (#6b7c5a) decorative design
 - 100% Portuguese text, no Spanish remnants
 - Zero console errors
+
+---
+Task ID: 7
+Agent: Main Agent
+Task: Move RSVP to page 3, make confirmation section full green
+
+Work Log:
+- Changed SPA state from 2-page ('landing' | 'content') to 3-page ('landing' | 'content' | 'rsvp')
+- Extracted RSVP form from RightPanel/MobileContent into standalone RSVPPage component
+- RightPanel now has full green background with recommendations + "Confirmar Presença" button
+- Added back button on RSVP page to return to content
+- Removed white form area from right panel
+- Build verified successfully
+
+Stage Summary:
+- 3-page SPA flow: Landing → Content (tri-fold) → RSVP (form)
+- Confirmation section now full green background
+- RSVP form on separate clean page with back navigation
+
+---
+Task ID: 8
+Agent: Main Agent
+Task: Move dress code to white section, remove QR code, add additional info
+
+Work Log:
+- Moved "Código de vestimenta" from green background to separate white-background section
+- Content now centered in the middle of the section
+- Removed QR code icon and "PRESENTES" label from both MiddlePanel and MobileContent
+- Added additional dress code info: Women (traje longo/cocktail), Men (terno/camisa e gravata), shoes recommendation
+- Replaced QrCode import with Sparkles icon
+- Cleaned up unused useEffect import
+- Build verified successfully (0 errors)
+
+Stage Summary:
+- Dress code section on white background with centered content
+- QR code completely removed
+- Additional dress code details added for both men and women
+- Changes applied consistently to desktop (MiddlePanel) and mobile (MobileContent)
