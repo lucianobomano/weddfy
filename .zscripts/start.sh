@@ -61,22 +61,43 @@ if [ -f "./next-service-dist/server.js" ]; then
     echo "🚀 启动 Next.js 服务器..."
     cd next-service-dist/ || exit 1
     
+    # 检测数据库 Provider
+    SCHEMA_PATH="../prisma/schema.prisma"
+    if [ ! -f "$SCHEMA_PATH" ]; then
+        SCHEMA_PATH="prisma/schema.prisma"
+    fi
+
+    PROVIDER=""
+    if [ -f "$SCHEMA_PATH" ]; then
+        PROVIDER=$(grep -E 'provider\s*=\s*"postgresql"' "$SCHEMA_PATH" || true)
+    fi
+
     # 设置环境变量
     export NODE_ENV=production
     export PORT="${PORT:-3000}"
     export HOSTNAME="${HOSTNAME:-0.0.0.0}"
-    export DATABASE_URL="${DATABASE_URL:-$DEFAULT_PACKAGED_DATABASE_URL}"
 
-    if [ "$DATABASE_URL" = "$DEFAULT_PACKAGED_DATABASE_URL" ]; then
-        if [ ! -f "$DEFAULT_PACKAGED_DB_PATH" ]; then
-            echo "❌ 未找到打包后的数据库文件 $DEFAULT_PACKAGED_DB_PATH"
-            echo "   为避免生产环境启动到空数据库，启动已终止"
+    if [ -n "$PROVIDER" ]; then
+        echo "🔌 检测到 PostgreSQL 数据库配置。"
+        if [ -z "$DATABASE_URL" ] || [ "$DATABASE_URL" = "$DEFAULT_PACKAGED_DATABASE_URL" ]; then
+            echo "❌ 错误: 使用 PostgreSQL 但未设置生产环境变量 DATABASE_URL！"
+            echo "   请在部署平台的环境变量中配置 DATABASE_URL。"
             exit 1
         fi
-
-        echo "🗄️  当前使用打包数据库: $DEFAULT_PACKAGED_DB_PATH"
+        echo "🗄️  使用 PostgreSQL 数据库链接: $DATABASE_URL"
     else
-        echo "🗄️  当前使用外部指定数据库: $DATABASE_URL"
+        # SQLite 默认逻辑
+        export DATABASE_URL="${DATABASE_URL:-$DEFAULT_PACKAGED_DATABASE_URL}"
+        if [ "$DATABASE_URL" = "$DEFAULT_PACKAGED_DATABASE_URL" ]; then
+            if [ ! -f "$DEFAULT_PACKAGED_DB_PATH" ]; then
+                echo "❌ 未找到打包后的数据库文件 $DEFAULT_PACKAGED_DB_PATH"
+                echo "   为避免生产环境启动到空数据库，启动已终止"
+                exit 1
+            fi
+            echo "🗄️  当前使用打包 SQLite 数据库: $DEFAULT_PACKAGED_DB_PATH"
+        else
+            echo "🗄️  当前使用外部指定数据库: $DATABASE_URL"
+        fi
     fi
     
     # 后台启动 Next.js

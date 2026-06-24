@@ -77,19 +77,32 @@ if [ -d "public" ]; then
     cp -r public "$BUILD_DIR/next-service-dist/"
 fi
 
-# 将测试环境数据库复制到构建产物中，生产环境直接使用这份数据库
-if [ -f "./db/custom.db" ]; then
-    echo "🗄️  复制测试环境数据库到构建产物..."
-    mkdir -p "$BUILD_DIR/db"
-    cp -r ./db/. "$BUILD_DIR/db/"
+# 检测数据库 Provider
+PROVIDER=$(grep -E 'provider\s*=\s*"postgresql"' prisma/schema.prisma || true)
 
-    echo "🗄️  同步构建产物中的数据库结构..."
-    DATABASE_URL="file:$BUILD_DIR/db/custom.db" bun run db:push
-    echo "✅ 构建产物数据库已准备完成"
-    ls -lah "$BUILD_DIR/db"
+if [ -n "$PROVIDER" ]; then
+    echo "🗄️  检测到 PostgreSQL 数据库。跳过本地 SQLite 数据库打包。"
+    if [ -n "$DATABASE_URL" ]; then
+        echo "🗄️  检测到 DATABASE_URL，正在同步数据库结构..."
+        bun run db:push
+    else
+        echo "⚠️  未检测到 DATABASE_URL，跳过构建时数据库结构同步（请确保生产数据库已手动进行 db push）。"
+    fi
 else
-    echo "❌ 未找到测试环境数据库文件 ./db/custom.db，无法继续构建生产包"
-    exit 1
+    # 将测试环境数据库复制到构建产物中，生产环境直接使用这份数据库 (SQLite)
+    if [ -f "./db/custom.db" ]; then
+        echo "🗄️  复制测试环境数据库到构建产物..."
+        mkdir -p "$BUILD_DIR/db"
+        cp -r ./db/. "$BUILD_DIR/db/"
+
+        echo "🗄️  同步构建产物中的数据库结构..."
+        DATABASE_URL="file:$BUILD_DIR/db/custom.db" bun run db:push
+        echo "✅ 构建产物数据库已准备完成"
+        ls -lah "$BUILD_DIR/db"
+    else
+        echo "❌ 未找到测试环境数据库文件 ./db/custom.db，无法继续构建生产包"
+        exit 1
+    fi
 fi
 
 # 复制 Caddyfile（如果存在）
