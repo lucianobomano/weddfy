@@ -141,6 +141,7 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
           setForm(p => ({
             ...p,
             name: data.name || p.name,
+            email: data.email || '',
             companion: data.companion,
             companionName: data.companionName || '',
           }));
@@ -162,10 +163,16 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
     setIsSubmitting(true);
     setSubmitStatus('idle');
     try {
+      const submissionForm = { ...form };
+      if (!submissionForm.email) {
+        const normalized = form.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase().replace(/\s+/g, '-');
+        submissionForm.email = `${normalized || 'guest'}-${Math.random().toString(36).substring(2, 9)}@confirmado.com`;
+      }
+
       const res = await fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(submissionForm),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -262,20 +269,6 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
               />
             </div>
 
-            {/* Email */}
-            <div>
-              <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
-                E-mail
-              </label>
-              <Input
-                type="email"
-                placeholder="mariaeduarda@email.com"
-                required
-                value={form.email}
-                onChange={(e) => h('email', e.target.value)}
-                className="h-9 text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40"
-              />
-            </div>
 
             {/* Acompanhante Dropdown */}
             <div>
