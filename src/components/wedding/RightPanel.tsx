@@ -1,17 +1,16 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { Heart, Users, MapPin, Clock } from 'lucide-react';
 import { GREEN } from './constants';
 import RecItemGreen from './RecItemGreen';
 
 interface RightPanelProps {
   onOpenRSVP: () => void;
+  onOpenGifts: () => void;
 }
 
-export default function RightPanel({ onOpenRSVP }: RightPanelProps) {
+export default function RightPanel({ onOpenRSVP, onOpenGifts }: RightPanelProps) {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const guestName = searchParams.get('nome') ?? '';
 
   return (
@@ -67,13 +66,13 @@ export default function RightPanel({ onOpenRSVP }: RightPanelProps) {
           Confirmar Presença
         </button>
 
-        <Link
-          href={`/presentes${guestName ? `?nome=${encodeURIComponent(guestName)}` : ''}`}
+        <button
+          onClick={onOpenGifts}
           className="w-full mt-2.5 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:bg-white hover:text-[#6b7c5a] block text-center"
           style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.5)', color: '#ffffff' }}
         >
           Ver sugestões
-        </Link>
+        </button>
       </div>
 
       {/* Bottom photo */}

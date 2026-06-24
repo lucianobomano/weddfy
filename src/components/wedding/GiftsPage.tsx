@@ -1,7 +1,6 @@
 'use client';
 
-import React, { Suspense, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import { 
   ArrowLeft, 
   Plane, 
@@ -29,11 +28,12 @@ interface GiftItem {
   icon: React.ReactNode;
 }
 
-function PresentesContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const guestName = searchParams.get('nome') ?? '';
-  
+interface GiftsPageProps {
+  onBack: () => void;
+  initialGuestName?: string;
+}
+
+export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPageProps) {
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [copiedIBAN, setCopiedIBAN] = useState(false);
 
@@ -144,14 +144,6 @@ function PresentesContent() {
     }
   ];
 
-  const handleBack = () => {
-    if (guestName) {
-      router.push(`/?nome=${encodeURIComponent(guestName)}`);
-    } else {
-      router.push('/');
-    }
-  };
-
   const handleCopyIBAN = () => {
     navigator.clipboard.writeText('AO06 0040 0000 1234 5678 1019 2');
     setCopiedIBAN(true);
@@ -162,7 +154,7 @@ function PresentesContent() {
     <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 bg-[#f5f2ed] select-none">
       {/* Back button */}
       <button
-        onClick={handleBack}
+        onClick={onBack}
         className="fixed top-4 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md border border-[#e0e0e0] transition-all hover:scale-105 active:scale-95"
       >
         <ArrowLeft className="w-5 h-5 text-[#6b7c5a]" />
@@ -373,13 +365,5 @@ function PresentesContent() {
         </div>
       )}
     </div>
-  );
-}
-
-export default function PresentesPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#f5f2ed] flex items-center justify-center text-xs text-[#363e2d]/60 font-semibold tracking-widest uppercase">Carregando...</div>}>
-      <PresentesContent />
-    </Suspense>
   );
 }

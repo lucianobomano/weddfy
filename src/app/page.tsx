@@ -9,6 +9,7 @@ import LeftPanel from '@/components/wedding/LeftPanel';
 import MiddlePanel from '@/components/wedding/MiddlePanel';
 import RightPanel from '@/components/wedding/RightPanel';
 import RSVPPage from '@/components/wedding/RSVPPage';
+import GiftsPage from '@/components/wedding/GiftsPage';
 import MobileContent from '@/components/wedding/MobileContent';
 import BackButton from '@/components/wedding/BackButton';
 
@@ -16,7 +17,7 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const guestName = searchParams.get('nome') ?? '';
 
-  const [page, setPage] = useState<'landing' | 'content' | 'rsvp'>('landing');
+  const [page, setPage] = useState<'landing' | 'content' | 'rsvp' | 'gifts'>('landing');
 
   return (
     <div className="min-h-screen" style={{ background: CREAM }}>
@@ -60,7 +61,7 @@ function HomeContent() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.24, ease: 'easeOut' }}
                   >
-                    <RightPanel onOpenRSVP={() => setPage('rsvp')} />
+                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} />
                   </motion.div>
                 </div>
                 <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
@@ -89,7 +90,7 @@ function HomeContent() {
                     <MiddlePanel />
                   </div>
                   <div className="w-[280px] flex-shrink-0 bg-white rounded-sm shadow-md overflow-hidden min-h-[75vh]">
-                    <RightPanel onOpenRSVP={() => setPage('rsvp')} />
+                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} />
                   </div>
                 </div>
                 <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
@@ -111,6 +112,7 @@ function HomeContent() {
               <MobileContent
                 onBack={() => setPage('landing')}
                 onOpenRSVP={() => setPage('rsvp')}
+                onOpenGifts={() => setPage('gifts')}
                 initialGuestName={guestName}
               />
             </div>
@@ -120,6 +122,14 @@ function HomeContent() {
         {page === 'rsvp' && (
           <RSVPPage 
             key="rsvp" 
+            onBack={() => setPage('content')} 
+            initialGuestName={guestName}
+          />
+        )}
+
+        {page === 'gifts' && (
+          <GiftsPage 
+            key="gifts" 
             onBack={() => setPage('content')} 
             initialGuestName={guestName}
           />
