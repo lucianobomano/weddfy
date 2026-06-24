@@ -27,13 +27,49 @@ export async function GET(request: NextRequest) {
         .toLowerCase();
     };
 
-    const matched = manualGuests.find(
-      (g) => normalizeName(g.name) === normalizeName(name)
-    );
+    const isMatch = (g: any, queryName: string) => {
+      const normQuery = normalizeName(queryName);
+      const normMain = normalizeName(g.name);
+
+      // Direct match
+      if (normMain === normQuery) return true;
+
+      // Match parts of combined names (e.g., "Luciano & Tatiana" matching "Luciano" and "Tatiana")
+      if (g.companion === 'yes') {
+        const normComp = g.companionName ? normalizeName(g.companionName) : '';
+        
+        const variations = [];
+        if (normComp) {
+          variations.push(`${normMain}&${normComp}`);
+          variations.push(`${normMain}e${normComp}`);
+          variations.push(`${normMain}and${normComp}`);
+          variations.push(`${normMain}+${normComp}`);
+        } else {
+          variations.push(`${normMain}&acompanhante`);
+          variations.push(`${normMain}eacompanhante`);
+          variations.push(`${normMain}andacompanhante`);
+          variations.push(`${normMain}+acompanhante`);
+        }
+
+        const normQueryNoSpaces = normQuery.replace(/\s+/g, '');
+        if (variations.some(v => v.replace(/\s+/g, '') === normQueryNoSpaces)) {
+          return true;
+        }
+
+        if (normComp && normQuery.includes(normMain) && normQuery.includes(normComp)) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    const matched = manualGuests.find((g) => isMatch(g, name));
 
     if (matched) {
       return NextResponse.json({
         found: true,
+        name: matched.name,
         companion: matched.companion || 'no',
         companionName: matched.companionName || '',
       });

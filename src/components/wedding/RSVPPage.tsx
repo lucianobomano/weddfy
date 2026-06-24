@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, AlertCircle, Loader2, Gift, Plane, Utensils, Compass, ChefHat, Flame, Coffee, Home, Bed, BookOpen, Music } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -24,6 +24,8 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showGiftDropdown, setShowGiftDropdown] = useState(false);
+  const [showGiftsModal, setShowGiftsModal] = useState(false);
   const [form, setForm] = useState<RSVPForm>({
     name: initialGuestName,
     email: '',
@@ -32,6 +34,100 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
     gift: '',
     message: '',
   });
+
+  const giftSuggestions = [
+    {
+      id: '1',
+      title: 'Cota para Passagens Aéreas',
+      category: 'Lua de Mel',
+      price: '150.000 AOA',
+      icon: <Plane className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '2',
+      title: 'Jantar Romântico na Ilha de Luanda',
+      category: 'Lua de Mel',
+      price: '80.000 AOA',
+      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '3',
+      title: 'Passeio de Barco na Baía de Luanda',
+      category: 'Lua de Mel',
+      price: '50.000 AOA',
+      icon: <Compass className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '4',
+      title: 'Micro-ondas Digital',
+      category: 'Cozinha',
+      price: '95.000 AOA',
+      icon: <ChefHat className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '5',
+      title: 'Fritadeira sem Óleo (Airfryer)',
+      category: 'Cozinha',
+      price: '110.000 AOA',
+      icon: <Flame className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '6',
+      title: 'Máquina de Café Delta Q',
+      category: 'Cozinha',
+      price: '85.000 AOA',
+      icon: <Coffee className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '7',
+      title: 'Aparelho de Jantar (30 peças)',
+      category: 'Cozinha',
+      price: '75.000 AOA',
+      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '8',
+      title: 'Liquidificador de Alta Potência',
+      category: 'Cozinha',
+      price: '45.000 AOA',
+      icon: <ChefHat className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '9',
+      title: 'Aspirador de Pó Vertical',
+      category: 'Casa & Conforto',
+      price: '70.000 AOA',
+      icon: <Home className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '10',
+      title: 'Jogo de Lençóis 400 Fios',
+      category: 'Casa & Conforto',
+      price: '55.000 AOA',
+      icon: <Bed className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '11',
+      title: 'Faqueiro de Aço Inox (24 peças)',
+      category: 'Cozinha',
+      price: '35.000 AOA',
+      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '12',
+      title: 'Soundbar Bluetooth',
+      category: 'Sala de Estar',
+      price: '120.000 AOA',
+      icon: <Music className="w-5 h-5 text-[#6b7c5a]" />
+    },
+    {
+      id: '13',
+      title: 'Livros (Negócio, Design Gráfico e Arquitectura)',
+      category: 'Livros',
+      price: '7.250 AOA',
+      icon: <BookOpen className="w-5 h-5 text-[#6b7c5a]" />
+    }
+  ];
 
   useEffect(() => {
     if (!initialGuestName) return;
@@ -44,8 +140,9 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
         if (data.found) {
           setForm(p => ({
             ...p,
+            name: data.name || p.name,
             companion: data.companion,
-            companionName: data.companionName,
+            companionName: data.companionName || '',
           }));
         }
       } catch (error) {
@@ -211,22 +308,82 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
               </motion.div>
             )}
 
-            {/* Gift/Present Selection */}
+            {/* Deseja nos presentear? Radio Buttons */}
             <div>
               <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
-                Sugestão de Presente
+                Gostaria de escolher uma sugestão de presente?
               </label>
-              <Select value={form.gift} onValueChange={(v) => h('gift', v)}>
-                <SelectTrigger className="h-9 text-xs rounded-none border-[#363e2d]/30 focus:ring-[#6b7c5a]/30 bg-white text-[#363e2d]">
-                  <SelectValue placeholder="Selecione uma opção" />
-                </SelectTrigger>
-                <SelectContent className="rounded-none">
-                  <SelectItem value="Pix/Transferência">Contribuição Financeira (Pix/IBAN)</SelectItem>
-                  <SelectItem value="Presente Físico">Presente Físico</SelectItem>
-                  <SelectItem value="Presença">Apenas presença (O melhor presente)</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex gap-6 mt-1 mb-2">
+                <label className="flex items-center gap-2 text-xs text-[#363e2d] cursor-pointer font-medium">
+                  <input
+                    type="radio"
+                    name="wantsGift"
+                    value="yes"
+                    checked={showGiftDropdown === true}
+                    onChange={() => {
+                      setShowGiftDropdown(true);
+                      h('gift', '');
+                    }}
+                    className="w-3.5 h-3.5 accent-[#6b7c5a]"
+                  />
+                  Sim
+                </label>
+                <label className="flex items-center gap-2 text-xs text-[#363e2d] cursor-pointer font-medium">
+                  <input
+                    type="radio"
+                    name="wantsGift"
+                    value="no"
+                    checked={showGiftDropdown === false}
+                    onChange={() => {
+                      setShowGiftDropdown(false);
+                      h('gift', 'Presença');
+                    }}
+                    className="w-3.5 h-3.5 accent-[#6b7c5a]"
+                  />
+                  Não
+                </label>
+              </div>
             </div>
+
+            {/* Gift/Present Selection (Hidden by default) */}
+            {showGiftDropdown && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }} 
+                animate={{ opacity: 1, height: 'auto' }} 
+                className="space-y-1.5"
+              >
+                <label className="text-[11px] font-semibold text-[#363e2d] block">
+                  Sugestão de Presente
+                </label>
+                <div className="flex gap-2 items-center">
+                  <div className="flex-1">
+                    <Select value={form.gift} onValueChange={(v) => h('gift', v)}>
+                      <SelectTrigger className="h-9 text-xs rounded-none border-[#363e2d]/30 focus:ring-[#6b7c5a]/30 bg-white text-[#363e2d]">
+                        <SelectValue placeholder="Selecione uma opção" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-none max-h-[300px]">
+                        <SelectItem value="Pix/Transferência">Contribuição Financeira (Pix/IBAN)</SelectItem>
+                        <SelectItem value="Presente Físico">Outro Presente Físico</SelectItem>
+                        <SelectItem value="Presença">Apenas presença (O melhor presente)</SelectItem>
+                        {giftSuggestions.map(gift => (
+                          <SelectItem key={gift.id} value={gift.title}>
+                            {gift.title}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowGiftsModal(true)}
+                    className="h-9 px-3 bg-[#6b7c5a] hover:bg-[#586749] text-white flex items-center justify-center transition-colors shadow-sm flex-shrink-0"
+                    title="Ver todas as sugestões"
+                  >
+                    <Gift className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            )}
 
             {/* Message */}
             <div>
@@ -299,6 +456,56 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
           </p>
         </div>
       </motion.div>
+
+      {/* Modal with Gift Suggestions */}
+      <AnimatePresence>
+        {showGiftsModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-[#f5f2ed] border-[6px] border-white/20 shadow-xl max-w-sm w-full max-h-[85vh] flex flex-col p-5 relative overflow-hidden"
+            >
+              <h3 className="text-sm font-bold uppercase text-[#363e2d] tracking-wider mb-2.5 text-center">
+                Sugestões de Presentes
+              </h3>
+              <p className="text-[11px] text-[#363e2d]/70 text-center mb-4">
+                Selecione uma das opções abaixo para preencher o formulário:
+              </p>
+              
+              <div className="overflow-y-auto flex-1 pr-1 space-y-2 max-h-[50vh]">
+                {giftSuggestions.map((item) => (
+                  <div
+                    key={item.id}
+                    onClick={() => {
+                      h('gift', item.title);
+                      setShowGiftsModal(false);
+                    }}
+                    className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                  >
+                    <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[11px] font-semibold text-[#363e2d] truncate">{item.title}</p>
+                      <p className="text-[9px] text-gray-500">{item.category} • {item.price}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <button
+                type="button"
+                onClick={() => setShowGiftsModal(false)}
+                className="mt-4 w-full py-2 bg-[#363e2d] hover:bg-[#2d3224] text-white text-[11px] font-bold tracking-[0.1em] uppercase transition-colors"
+              >
+                Fechar
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
