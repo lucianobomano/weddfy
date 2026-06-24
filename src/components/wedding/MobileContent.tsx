@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Heart, Clock, MapPin, Sparkles, Users, Gift } from 'lucide-react';
 import MobileMusicPlayer from './MobileMusicPlayer';
@@ -17,11 +18,6 @@ interface MobileContentProps {
 export default function MobileContent({ onBack, onOpenRSVP, initialGuestName = '' }: MobileContentProps) {
   const guestName = initialGuestName;
   const router = useRouter();
-
-  const handleOpenGifts = () => {
-    const query = guestName ? `?nome=${encodeURIComponent(guestName)}` : '';
-    router.push(`/presentes${query}`);
-  };
 
   return (
     <div className="min-h-screen bg-[#f5f2ed]">
@@ -446,13 +442,13 @@ export default function MobileContent({ onBack, onOpenRSVP, initialGuestName = '
           >
             O melhor presente é a sua presença, mas se desejar nos brindar com uma lembrança, desejamos estas opções
           </p>
-          <button 
-            onClick={handleOpenGifts}
-            className="px-6 py-2 bg-[#2d3224] text-white text-[12px] font-bold rounded-full tracking-[0.05em] uppercase hover:bg-[#1f2219] transition-all"
+          <Link 
+            href={`/presentes${guestName ? `?nome=${encodeURIComponent(guestName)}` : ''}`}
+            className="px-6 py-2 bg-[#2d3224] text-white text-[12px] font-bold rounded-full tracking-[0.05em] uppercase hover:bg-[#1f2219] transition-all inline-block"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             Ver sugestões
-          </button>
+          </Link>
         </div>
 
         {/* Divider with cross */}
