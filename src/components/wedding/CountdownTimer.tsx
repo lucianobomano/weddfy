@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const WEDDING_DATE = new Date('2025-11-14T16:50:00');
+const WEDDING_DATE = new Date('2026-07-26T16:50:00');
 
 function calcTimeLeft() {
   const now = new Date().getTime();
@@ -16,7 +16,11 @@ function calcTimeLeft() {
   };
 }
 
-export default function CountdownTimer() {
+interface CountdownTimerProps {
+  variant?: 'light' | 'dark';
+}
+
+export default function CountdownTimer({ variant = 'dark' }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
   const pad = useCallback((n: number) => String(n).padStart(2, '0'), []);
 
@@ -25,28 +29,51 @@ export default function CountdownTimer() {
     return () => clearInterval(timer);
   }, []);
 
+  const isLight = variant === 'light';
+  const textColorClass = isLight ? 'text-[#363e2d]' : 'text-white';
+
   return (
-    <div className="flex justify-center gap-1 sm:gap-2 text-white">
-      <TimeBlock value={pad(timeLeft.days)} label="DIAS" />
-      <Separator />
-      <TimeBlock value={pad(timeLeft.hours)} label="HORAS" />
-      <Separator />
-      <TimeBlock value={pad(timeLeft.minutes)} label="MIN" />
-      <Separator />
-      <TimeBlock value={pad(timeLeft.seconds)} label="SEG" />
+    <div className={`flex justify-center gap-3 sm:gap-4 ${textColorClass} select-none`}>
+      <TimeBlock value={pad(timeLeft.days)} label="DIAS" isLight={isLight} />
+      <Separator isLight={isLight} />
+      <TimeBlock value={pad(timeLeft.hours)} label="HORAS" isLight={isLight} />
+      <Separator isLight={isLight} />
+      <TimeBlock value={pad(timeLeft.minutes)} label="MIN" isLight={isLight} />
+      <Separator isLight={isLight} />
+      <TimeBlock value={pad(timeLeft.seconds)} label="SEG" isLight={isLight} />
     </div>
   );
 }
 
-function TimeBlock({ value, label }: { value: string; label: string }) {
+function TimeBlock({ value, label, isLight }: { value: string; label: string; isLight: boolean }) {
   return (
-    <div className="text-center min-w-[2rem] sm:min-w-[2.5rem]">
-      <div className="text-lg sm:text-2xl font-light tracking-wider">{value}</div>
-      <div className="text-[7px] sm:text-[8px] tracking-[0.15em] mt-0.5 opacity-70">{label}</div>
+    <div className="text-center min-w-[2.2rem] sm:min-w-[2.8rem]">
+      <div 
+        className={`font-semibold tracking-wider ${
+          isLight ? 'text-3xl sm:text-4xl' : 'text-lg sm:text-2xl font-light'
+        }`}
+      >
+        {value}
+      </div>
+      <div 
+        className={`text-[8px] sm:text-[9px] tracking-[0.15em] mt-1.5 font-bold ${
+          isLight ? 'text-[#363e2d]/60' : 'text-white/70'
+        }`}
+      >
+        {label}
+      </div>
     </div>
   );
 }
 
-function Separator() {
-  return <div className="text-lg sm:text-2xl font-light opacity-50 pb-3">:</div>;
+function Separator({ isLight }: { isLight: boolean }) {
+  return (
+    <div 
+      className={`text-2xl sm:text-3xl font-light pb-4 flex items-center justify-center ${
+        isLight ? 'text-[#363e2d]/50 translate-y-[-4px]' : 'text-white/50'
+      }`}
+    >
+      :
+    </div>
+  );
 }
