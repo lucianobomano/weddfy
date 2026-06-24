@@ -24,7 +24,7 @@ export default function LeftPanel() {
       <div className="flex-1 bg-white px-3 sm:px-4 py-4 flex flex-col justify-center">
         <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
           <Image
-            src="/images/couple-portrait.png"
+            src="/images/01.webp"
             alt="Luciano & Auriscidia"
             fill
             className="object-cover"

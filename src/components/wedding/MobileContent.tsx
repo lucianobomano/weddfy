@@ -75,7 +75,7 @@ export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initial
         {/* Middle Content: Photo */}
         <div className="w-full max-w-[305px] h-[450px] bg-white border-[6px] border-[#e1e5de]/40 rounded-sm shadow-inner relative overflow-hidden">
           <Image
-            src="/images/couple_photo_bw.png"
+            src="/images/01.webp"
             alt="Auriscidia e Luciano"
             fill
             className="object-cover"
@@ -596,7 +596,7 @@ export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initial
         {/* Photo frame */}
         <div className="w-full max-w-[305px] h-[450px] bg-white border-[6px] border-[#c4cbbd] rounded-sm shadow-inner relative overflow-hidden mt-1.5 mx-auto">
           <Image
-            src="/images/couple_photo_bw.png"
+            src="/images/01.webp"
             alt="Auriscidia e Luciano"
             fill
             className="object-cover"

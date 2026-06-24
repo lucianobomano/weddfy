@@ -78,7 +78,7 @@ export default function RightPanel({ onOpenRSVP, onOpenGifts }: RightPanelProps)
       {/* Bottom photo */}
       <div className="relative aspect-[16/10] overflow-hidden flex-shrink-0">
         <Image
-          src="/images/couple-sunlight.png"
+          src="/images/01.webp"
           alt="Luciano & Auriscidia"
           fill
           className="object-cover"

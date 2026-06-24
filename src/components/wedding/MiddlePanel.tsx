@@ -50,7 +50,7 @@ export default function MiddlePanel() {
       </div>
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
-          src="/images/couple-dancing.png"
+          src="/images/01.webp"
           alt="Luciano & Auriscidia"
           fill
           className="object-cover"
