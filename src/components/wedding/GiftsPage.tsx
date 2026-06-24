@@ -145,7 +145,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
   ];
 
   const handleCopyIBAN = () => {
-    navigator.clipboard.writeText('AO06 0040 0000 1234 5678 1019 2');
+    navigator.clipboard.writeText('AO06 0040 0000 0459 2024 1013 8');
     setCopiedIBAN(true);
     setTimeout(() => setCopiedIBAN(false), 2000);
   };
@@ -250,12 +250,16 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
             </div>
             <div className="flex justify-between text-xs font-semibold">
               <span className="text-white/60">Titular:</span>
-              <span className="font-bold">Luciano Manuel & Auriscidia Santos</span>
+              <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
+            </div>
+            <div className="flex justify-between text-xs font-semibold">
+              <span className="text-white/60">Express:</span>
+              <span className="font-bold">+244931931304</span>
             </div>
             <div className="flex justify-between items-center text-xs font-semibold gap-4">
               <span className="text-white/60">IBAN:</span>
               <div className="flex items-center gap-2 select-all font-mono text-[11px] bg-black/10 px-2 py-1 rounded-sm">
-                <span>AO06 0040 0000 1234 5678 1019 2</span>
+                <span>AO06 0040 0000 0459 2024 1013 8</span>
               </div>
             </div>
             <div className="pt-2 flex justify-end">
@@ -330,12 +334,16 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
               </div>
               <div className="flex justify-between text-[11px] font-semibold text-gray-700">
                 <span>Titular:</span>
-                <span className="font-bold">Luciano Manuel & Auriscidia Santos</span>
+                <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
+              </div>
+              <div className="flex justify-between text-[11px] font-semibold text-gray-700">
+                <span>Express:</span>
+                <span className="font-bold">+244931931304</span>
               </div>
               <div className="flex flex-col gap-1 text-[11px] font-semibold text-gray-700 pt-1.5 border-t border-[#6b7c5a]/10">
                 <span>IBAN (Angola):</span>
                 <div className="flex items-center justify-between gap-2 bg-white border border-[#6b7c5a]/20 p-2 rounded-sm select-all font-mono text-[10.5px]">
-                  <span>AO06 0040 0000 1234 5678 1019 2</span>
+                  <span>AO06 0040 0000 0459 2024 1013 8</span>
                   <button
                     onClick={handleCopyIBAN}
                     className="p-1 text-[#6b7c5a] hover:bg-[#6b7c5a]/10 rounded-full transition-colors flex-shrink-0"
