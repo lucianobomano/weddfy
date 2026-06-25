@@ -21,12 +21,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Luciano & Auriscidia — 14 de Novembro 2025",
+  title: "Weddfy",
   description:
     "Convidamos você para celebrar a união de Luciano e Auriscidia no dia 14 de Novembro de 2025, em Luanda, Angola.",
   keywords: ["casamento", "wedding", "Luciano e Auriscidia", "convite", "RSVP", "Luanda"],
   openGraph: {
-    title: "Luciano & Auriscidia — 14.11.2025",
+    title: "Weddfy",
     description: "Convidamos você para celebrar o nosso dia especial.",
     type: "website",
   },
