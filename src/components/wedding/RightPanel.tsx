@@ -7,9 +7,10 @@ import RecItemGreen from './RecItemGreen';
 interface RightPanelProps {
   onOpenRSVP: () => void;
   onOpenGifts: () => void;
+  isConfirmed?: boolean;
 }
 
-export default function RightPanel({ onOpenRSVP, onOpenGifts }: RightPanelProps) {
+export default function RightPanel({ onOpenRSVP, onOpenGifts, isConfirmed = false }: RightPanelProps) {
   const searchParams = useSearchParams();
   const guestName = searchParams.get('nome') ?? '';
 
@@ -60,10 +61,18 @@ export default function RightPanel({ onOpenRSVP, onOpenGifts }: RightPanelProps)
 
         <button
           onClick={onOpenRSVP}
-          className="w-full mt-6 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:opacity-90"
-          style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)' }}
+          disabled={isConfirmed}
+          className={`w-full mt-6 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all ${
+            isConfirmed 
+              ? 'opacity-50 cursor-not-allowed text-white/70' 
+              : 'hover:opacity-90'
+          }`}
+          style={{ 
+            background: isConfirmed ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.15)', 
+            border: isConfirmed ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.3)' 
+          }}
         >
-          Confirmar Presença
+          {isConfirmed ? 'Presença Confirmada' : 'Confirmar Presença'}
         </button>
 
         <button

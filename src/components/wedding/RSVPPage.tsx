@@ -18,9 +18,10 @@ export interface RSVPForm {
 interface RSVPPageProps {
   onBack: () => void;
   initialGuestName?: string;
+  onConfirmSuccess?: () => void;
 }
 
-export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProps) {
+export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSuccess }: RSVPPageProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -190,6 +191,7 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
       }
       setSubmitStatus('success');
       setForm({ name: '', email: '', companion: '', companionName: '', gift: '', message: '' });
+      if (onConfirmSuccess) onConfirmSuccess();
     } catch {
       setSubmitStatus('error');
       setErrorMessage('Erro de ligação.');

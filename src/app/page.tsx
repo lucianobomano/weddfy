@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CREAM } from '@/components/wedding/constants';
@@ -18,6 +18,25 @@ function HomeContent() {
   const guestName = searchParams.get('nome') ?? '';
 
   const [page, setPage] = useState<'landing' | 'content' | 'rsvp' | 'gifts'>('landing');
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
+  useEffect(() => {
+    if (!guestName) return;
+    const checkStatus = async () => {
+      try {
+        const res = await fetch(`/api/rsvp/check?name=${encodeURIComponent(guestName)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.confirmed) {
+            setIsConfirmed(true);
+          }
+        }
+      } catch (error) {
+        console.error('Error checking guest confirmation status:', error);
+      }
+    };
+    checkStatus();
+  }, [guestName]);
 
   return (
     <div className="min-h-screen" style={{ background: CREAM }}>
@@ -61,7 +80,7 @@ function HomeContent() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.24, ease: 'easeOut' }}
                   >
-                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} />
+                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} isConfirmed={isConfirmed} />
                   </motion.div>
                 </div>
                 <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
@@ -90,7 +109,7 @@ function HomeContent() {
                     <MiddlePanel />
                   </div>
                   <div className="w-[280px] flex-shrink-0 bg-white rounded-sm shadow-md overflow-hidden min-h-[75vh]">
-                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} />
+                    <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} isConfirmed={isConfirmed} />
                   </div>
                 </div>
                 <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
@@ -114,6 +133,7 @@ function HomeContent() {
                 onOpenRSVP={() => setPage('rsvp')}
                 onOpenGifts={() => setPage('gifts')}
                 initialGuestName={guestName}
+                isConfirmed={isConfirmed}
               />
             </div>
           </motion.div>
@@ -124,6 +144,7 @@ function HomeContent() {
             key="rsvp" 
             onBack={() => setPage('content')} 
             initialGuestName={guestName}
+            onConfirmSuccess={() => setIsConfirmed(true)}
           />
         )}
 

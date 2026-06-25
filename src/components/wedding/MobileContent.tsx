@@ -12,9 +12,10 @@ interface MobileContentProps {
   onOpenRSVP: () => void;
   onOpenGifts: () => void;
   initialGuestName?: string;
+  isConfirmed?: boolean;
 }
 
-export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initialGuestName = '' }: MobileContentProps) {
+export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initialGuestName = '', isConfirmed = false }: MobileContentProps) {
   const guestName = initialGuestName;
 
   return (
@@ -486,10 +487,15 @@ export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initial
           <div className="flex flex-col items-center gap-2.5">
             <button 
               onClick={onOpenRSVP}
-              className="w-[220px] py-2 bg-[#2d3224] text-white text-[12px] font-bold rounded-full tracking-[0.05em] uppercase hover:bg-[#1f2219] transition-all"
+              disabled={isConfirmed}
+              className={`w-[220px] py-2 text-white text-[12px] font-bold rounded-full tracking-[0.05em] uppercase transition-all ${
+                isConfirmed 
+                  ? 'bg-[#4a4f41]/60 cursor-not-allowed opacity-80' 
+                  : 'bg-[#2d3224] hover:bg-[#1f2219]'
+              }`}
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              Confirmar Presença
+              {isConfirmed ? 'Presença Confirmada' : 'Confirmar Presença'}
             </button>
           </div>
         </div>

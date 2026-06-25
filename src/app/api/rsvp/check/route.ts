@@ -10,14 +10,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Nome é obrigatório.' }, { status: 400 });
     }
 
-    // Fetch manual guests to perform case-insensitive comparison
-    const manualGuests = await db.rSVP.findMany({
-      where: {
-        email: {
-          startsWith: 'manual-',
-        },
-      },
-    });
+    // Fetch all guests to perform case-insensitive comparison
+    const allGuests = await db.rSVP.findMany();
 
     const normalizeName = (s: string) => {
       return s
@@ -64,11 +58,12 @@ export async function GET(request: NextRequest) {
       return false;
     };
 
-    const matched = manualGuests.find((g) => isMatch(g, name));
+    const matched = allGuests.find((g) => isMatch(g, name));
 
     if (matched) {
       return NextResponse.json({
         found: true,
+        confirmed: !!matched.attending,
         name: matched.name,
         companion: matched.companion || 'no',
         companionName: matched.companionName || '',
