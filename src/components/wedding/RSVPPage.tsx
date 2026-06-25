@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, AlertCircle, Loader2, Gift, Plane, Utensils, Compass, ChefHat, Flame, Coffee, Home, Bed, BookOpen, Music } from 'lucide-react';
+import { CheckCircle, AlertCircle, Loader2, Gift, Plane, Utensils, Compass, ChefHat, Flame, Coffee, Home, Bed, BookOpen, Music, Copy, Check } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -26,6 +26,14 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
   const [errorMessage, setErrorMessage] = useState('');
   const [showGiftDropdown, setShowGiftDropdown] = useState(false);
   const [showGiftsModal, setShowGiftsModal] = useState(false);
+  const [copiedIBAN, setCopiedIBAN] = useState(false);
+
+  const handleCopyIBAN = useCallback(() => {
+    navigator.clipboard.writeText('AO06004000000459202410138');
+    setCopiedIBAN(true);
+    setTimeout(() => setCopiedIBAN(false), 2000);
+  }, []);
+
   const [form, setForm] = useState<RSVPForm>({
     name: initialGuestName,
     email: '',
@@ -343,37 +351,62 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
               <motion.div 
                 initial={{ opacity: 0, height: 0 }} 
                 animate={{ opacity: 1, height: 'auto' }} 
-                className="space-y-1.5"
+                className="space-y-3"
               >
-                <label className="text-[11px] font-semibold text-[#363e2d] block">
-                  Sugestão de Presente
-                </label>
-                <div className="flex gap-2 items-center">
-                  <div className="flex-1">
-                    <Select value={form.gift} onValueChange={(v) => h('gift', v)}>
-                      <SelectTrigger className="h-9 text-xs rounded-none border-[#363e2d]/30 focus:ring-[#6b7c5a]/30 bg-white text-[#363e2d]">
-                        <SelectValue placeholder="Selecione uma opção" />
-                      </SelectTrigger>
-                      <SelectContent className="rounded-none max-h-[300px]">
-                        <SelectItem value="Pix/Transferência">Contribuição Financeira (Pix/IBAN)</SelectItem>
-                        <SelectItem value="Presente Físico">Outro Presente Físico</SelectItem>
-                        <SelectItem value="Presença">Apenas presença (O melhor presente)</SelectItem>
-                        {giftSuggestions.map(gift => (
-                          <SelectItem key={gift.id} value={gift.title}>
-                            {gift.title}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-semibold text-[#363e2d] block">
+                    Sugestão de Presente
+                  </label>
+                  <div className="flex gap-2 items-center">
+                    <div className="flex-1">
+                      <Input
+                        type="text"
+                        placeholder="Clique para selecionar uma sugestão..."
+                        readOnly
+                        value={form.gift}
+                        onClick={() => setShowGiftsModal(true)}
+                        className="h-9 text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40 cursor-pointer"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowGiftsModal(true)}
+                      className="h-9 px-3 bg-[#6b7c5a] hover:bg-[#586749] text-white flex items-center justify-center transition-colors shadow-sm flex-shrink-0"
+                      title="Ver todas as sugestões"
+                    >
+                      <Gift className="w-4 h-4" />
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setShowGiftsModal(true)}
-                    className="h-9 px-3 bg-[#6b7c5a] hover:bg-[#586749] text-white flex items-center justify-center transition-colors shadow-sm flex-shrink-0"
-                    title="Ver todas as sugestões"
-                  >
-                    <Gift className="w-4 h-4" />
-                  </button>
+                </div>
+
+                {/* Coordenadas Bancárias */}
+                <div className="bg-[#f5f2ed] p-3 border border-[#6b7c5a]/15 space-y-2 rounded-none text-left">
+                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                    <span>Banco:</span>
+                    <span className="font-bold">Banco Angolano de Investimentos (BAI)</span>
+                  </div>
+                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                    <span>Titular:</span>
+                    <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
+                  </div>
+                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                    <span>Express:</span>
+                    <span className="font-bold">+244931931304</span>
+                  </div>
+                  <div className="flex flex-col gap-1 text-[10px] font-semibold text-gray-700 pt-1.5 border-t border-[#6b7c5a]/10">
+                    <span>IBAN (Angola):</span>
+                    <div className="flex items-center justify-between gap-2 bg-white border border-[#6b7c5a]/20 p-2 rounded-none select-all font-mono text-[9px]">
+                      <span>AO06 0040 0000 0459 2024 1013 8</span>
+                      <button
+                        type="button"
+                        onClick={handleCopyIBAN}
+                        className="p-1 text-[#6b7c5a] hover:bg-[#6b7c5a]/10 rounded-full transition-colors flex-shrink-0"
+                        title="Copiar IBAN"
+                      >
+                        {copiedIBAN ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -468,6 +501,59 @@ export default function RSVPPage({ onBack, initialGuestName = '' }: RSVPPageProp
               </p>
               
               <div className="overflow-y-auto flex-1 pr-1 space-y-2 max-h-[50vh]">
+                {/* Generic options */}
+                <div
+                  onClick={() => {
+                    h('gift', 'Contribuição Financeira (Pix/IBAN)');
+                    setShowGiftsModal(false);
+                  }}
+                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                >
+                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
+                    <Gift className="w-4 h-4 text-[#6b7c5a]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-semibold text-[#363e2d]">Contribuição Financeira (Pix/IBAN)</p>
+                    <p className="text-[9px] text-gray-500">Qualquer valor via transferência ou depósito</p>
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => {
+                    h('gift', 'Outro Presente Físico');
+                    setShowGiftsModal(false);
+                  }}
+                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                >
+                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
+                    <Gift className="w-4 h-4 text-[#6b7c5a]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-semibold text-[#363e2d]">Outro Presente Físico</p>
+                    <p className="text-[9px] text-gray-500">Sugira ou ofereça outro presente físico</p>
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => {
+                    h('gift', 'Apenas presença (O melhor presente)');
+                    setShowGiftsModal(false);
+                  }}
+                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                >
+                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-[#6b7c5a]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-semibold text-[#363e2d]">Apenas presença</p>
+                    <p className="text-[9px] text-gray-500">O melhor presente é ter a sua companhia</p>
+                  </div>
+                </div>
+
+                <div className="border-t border-[#363e2d]/10 my-2 pt-2">
+                  <p className="text-[9px] font-bold text-[#363e2d]/60 uppercase tracking-wider mb-2">Sugestões de Presentes:</p>
+                </div>
+
                 {giftSuggestions.map((item) => (
                   <div
                     key={item.id}
