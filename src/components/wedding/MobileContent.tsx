@@ -625,7 +625,7 @@ export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initial
           className="text-[9px] tracking-[0.2em] text-[#E1E5DE]/40 uppercase mt-1 font-semibold"
           style={{ fontFamily: 'var(--font-inter)' }}
         >
-          14 DE NOVEMBRO DE 2025
+          26 DE JULHO DE 2026
         </p>
         <p 
           className="text-[8px] tracking-[0.15em] text-[#E1E5DE]/40 uppercase mt-3 font-semibold"

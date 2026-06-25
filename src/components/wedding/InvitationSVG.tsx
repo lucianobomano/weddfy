@@ -31,7 +31,7 @@ export default function InvitationSVG() {
         O Nosso Casamento
       </text>
       <text x="200" y="325" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fill={GREEN} letterSpacing="2" fontWeight="500">
-        14 DE NOVEMBRO DE 2025
+        26 DE JULHO DE 2026
       </text>
       <line x1="150" y1="348" x2="250" y2="348" stroke={GREEN} strokeWidth="0.5" opacity="0.3" />
       <text x="200" y="380" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="9" fill={GRAY} letterSpacing="1.5" fontWeight="300">

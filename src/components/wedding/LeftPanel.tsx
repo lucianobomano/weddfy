@@ -19,7 +19,7 @@ export default function LeftPanel() {
         <h1 className="text-3xl sm:text-4xl leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
           Auriscidia
         </h1>
-        <p className="mt-3 text-[11px] sm:text-xs tracking-[0.25em] opacity-80">14.11.2025</p>
+        <p className="mt-3 text-[11px] sm:text-xs tracking-[0.25em] opacity-80">26.07.2026</p>
       </div>
       <div className="flex-1 bg-white px-3 sm:px-4 py-4 flex flex-col justify-center">
         <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
