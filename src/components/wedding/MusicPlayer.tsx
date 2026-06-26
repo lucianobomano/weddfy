@@ -10,7 +10,7 @@ export default function MusicPlayer() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/audio/song.mp3');
+    audioRef.current = new Audio('/audio/o-melhor-lugar.mp3');
     
     const audio = audioRef.current;
     
