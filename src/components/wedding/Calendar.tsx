@@ -1,6 +1,6 @@
 'use client';
 
-const DAYS = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB', 'DOM'];
+const DAYS = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
 
 interface CalendarDay {
   day: number;
@@ -8,21 +8,30 @@ interface CalendarDay {
   isWeddingDay?: boolean;
 }
 
+// July 2026 — week starts on Sunday
+// July 1 = Wednesday → 3 leading days from June (Sun 28, Mon 29, Tue 30 = wrong)
+// With Sun-first: Wed = column index 4 (DOM=0,SEG=1,TER=2,QUA=3,QUI=4...)
+// Wait: DOM=0, SEG=1, TER=2, QUA=3 → July 1 is on column 3 (QUA)
+// Leading days from June: DOM 28, SEG 29, TER 30
 const JULY_2026_GRID: CalendarDay[] = [
+  // Week 1 — leading days from June
   { day: 28, isCurrentMonth: false },
   { day: 29, isCurrentMonth: false },
   { day: 30, isCurrentMonth: false },
-  { day: 1, isCurrentMonth: true },
-  { day: 2, isCurrentMonth: true },
-  { day: 3, isCurrentMonth: true },
-  { day: 4, isCurrentMonth: true },
-  { day: 5, isCurrentMonth: true },
-  { day: 6, isCurrentMonth: true },
-  { day: 7, isCurrentMonth: true },
-  { day: 8, isCurrentMonth: true },
-  { day: 9, isCurrentMonth: true },
+  // July 1 starts on Wednesday (QUA = col 3)
+  { day: 1,  isCurrentMonth: true },
+  { day: 2,  isCurrentMonth: true },
+  { day: 3,  isCurrentMonth: true },
+  { day: 4,  isCurrentMonth: true },
+  // Week 2
+  { day: 5,  isCurrentMonth: true },
+  { day: 6,  isCurrentMonth: true },
+  { day: 7,  isCurrentMonth: true },
+  { day: 8,  isCurrentMonth: true },
+  { day: 9,  isCurrentMonth: true },
   { day: 10, isCurrentMonth: true },
   { day: 11, isCurrentMonth: true },
+  // Week 3
   { day: 12, isCurrentMonth: true },
   { day: 13, isCurrentMonth: true },
   { day: 14, isCurrentMonth: true },
@@ -30,6 +39,7 @@ const JULY_2026_GRID: CalendarDay[] = [
   { day: 16, isCurrentMonth: true },
   { day: 17, isCurrentMonth: true },
   { day: 18, isCurrentMonth: true },
+  // Week 4
   { day: 19, isCurrentMonth: true },
   { day: 20, isCurrentMonth: true },
   { day: 21, isCurrentMonth: true },
@@ -37,21 +47,17 @@ const JULY_2026_GRID: CalendarDay[] = [
   { day: 23, isCurrentMonth: true },
   { day: 24, isCurrentMonth: true },
   { day: 25, isCurrentMonth: true },
+  // Week 5 — day 26 (wedding) falls on Sunday ✓
   { day: 26, isCurrentMonth: true, isWeddingDay: true },
   { day: 27, isCurrentMonth: true },
   { day: 28, isCurrentMonth: true },
   { day: 29, isCurrentMonth: true },
   { day: 30, isCurrentMonth: true },
   { day: 31, isCurrentMonth: true },
-  { day: 1, isCurrentMonth: false },
-  { day: 2, isCurrentMonth: false },
-  { day: 3, isCurrentMonth: false },
-  { day: 4, isCurrentMonth: false },
-  { day: 5, isCurrentMonth: false },
-  { day: 6, isCurrentMonth: false },
-  { day: 7, isCurrentMonth: false },
-  { day: 8, isCurrentMonth: false },
+  // Trailing day from August to fill the row
+  { day: 1,  isCurrentMonth: false },
 ];
+
 
 interface CalendarProps {
   variant?: 'light' | 'dark';
