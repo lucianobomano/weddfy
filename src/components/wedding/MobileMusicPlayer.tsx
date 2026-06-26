@@ -9,9 +9,9 @@ export default function MobileMusicPlayer() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/audio/o-melhor-lugar.mp3');
-    
-    const audio = audioRef.current;
+    const audio = new Audio('/audio/o-melhor-lugar.mp3');
+    audio.preload = 'auto'; // start buffering immediately on mount
+    audioRef.current = audio;
     
     const handleTimeUpdate = () => {
       if (audio.duration) {
