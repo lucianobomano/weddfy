@@ -69,7 +69,7 @@ export default function MobileContent({ onBack, onOpenRSVP, onOpenGifts, initial
 
           {/* Date */}
           <p className="text-[11px] font-bold text-white tracking-[0.1em] uppercase">
-            26.06.2026
+            26.07.2026
           </p>
         </div>
 
