@@ -66,12 +66,12 @@ export default function MusicPlayer() {
         onClick={() => setIsPlaying(!isPlaying)}
         className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
         style={{
-          background: isPlaying ? '#6b7c5a' : 'transparent',
+          background: isPlaying ? '#38221F' : 'transparent',
           border: '1px solid #e0e0e0',
         }}
       >
         {isPlaying ? (
-          <Pause className="w-3 h-3 text-white" />
+          <Pause className="w-3 h-3 text-[#F3EBDD]" />
         ) : (
           <Play className="w-3 h-3 text-[#888]" />
         )}
@@ -85,7 +85,7 @@ export default function MusicPlayer() {
         className="flex-1 h-[6px] bg-[#e0e0e0] rounded-full cursor-pointer relative flex items-center"
       >
         <div
-          className="h-full rounded-full bg-[#6b7c5a]"
+          className="h-full rounded-full bg-[#38221F]"
           style={{ width: `${progress}%` }}
         />
       </div>

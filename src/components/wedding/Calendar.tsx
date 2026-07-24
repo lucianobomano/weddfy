@@ -72,7 +72,7 @@ export default function Calendar({ variant = 'dark', showTitle = true }: Calenda
       {showTitle && (
         <div 
           className={`text-center text-xs tracking-[0.2em] uppercase mb-3 ${
-            isLight ? 'text-[#363e2d] font-bold' : 'text-white/80'
+            isLight ? 'text-[#38221F] font-bold' : 'text-white/80'
           }`}
         >
           Julho 2026
@@ -86,7 +86,7 @@ export default function Calendar({ variant = 'dark', showTitle = true }: Calenda
             <div 
               key={i} 
               className={`text-center text-[9px] py-1 tracking-wider font-bold ${
-                isLight ? 'text-[#363e2d]' : 'text-white/50'
+                isLight ? 'text-[#38221F]' : 'text-white/50'
               }`}
             >
               {day}
@@ -102,10 +102,10 @@ export default function Calendar({ variant = 'dark', showTitle = true }: Calenda
                 <div key={i} className="flex items-center justify-center py-1">
                   <div className="relative w-8 h-8 flex items-center justify-center">
                     {/* Leafy Green Heart SVG */}
-                    <svg viewBox="0 0 24 24" fill="#6b7c5a" className="absolute w-7 h-7 text-[#6b7c5a] opacity-80">
+                    <svg viewBox="0 0 24 24" fill="#38221F" className="absolute w-7 h-7 text-[#38221F] opacity-80">
                       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
-                    <span className="relative z-10 text-white font-bold text-[11px] leading-none">
+                    <span className="relative z-10 text-[#F3EBDD] font-bold text-[11px] leading-none">
                       {day}
                     </span>
                   </div>
@@ -116,7 +116,7 @@ export default function Calendar({ variant = 'dark', showTitle = true }: Calenda
             // Normal days
             let textColor = '';
             if (isLight) {
-              textColor = isCurrentMonth ? 'text-[#363e2d] font-medium' : 'text-[#363e2d]/30';
+              textColor = isCurrentMonth ? 'text-[#38221F] font-medium' : 'text-[#38221F]/30';
             } else {
               textColor = isCurrentMonth ? 'text-white/80' : 'text-white/30';
             }

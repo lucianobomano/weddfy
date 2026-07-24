@@ -77,8 +77,8 @@ export default function RightPanel({ onOpenRSVP, onOpenGifts, isConfirmed = fals
 
         <button
           onClick={onOpenGifts}
-          className="w-full mt-2.5 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:bg-white hover:text-[#6b7c5a] block text-center"
-          style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.5)', color: '#ffffff' }}
+          className="w-full mt-2.5 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:bg-[#F3EBDD] hover:text-[#38221F] block text-center"
+          style={{ background: 'transparent', border: '1px solid rgba(243,235,221,0.5)', color: '#F3EBDD' }}
         >
           Ver sugestões
         </button>

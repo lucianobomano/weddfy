@@ -59,7 +59,7 @@ function HomeContent() {
                 <div className="flex justify-center items-start gap-4 p-6 w-full">
                   <BackButton onClick={() => setPage('landing')} className="top-4 left-4" />
                   <motion.div
-                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-white rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)]"
+                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)] border border-[#38221F]/10"
                     initial={{ opacity: 0, x: -40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -67,7 +67,7 @@ function HomeContent() {
                     <LeftPanel />
                   </motion.div>
                   <motion.div
-                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-white rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)]"
+                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)] border border-[#38221F]/10"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.12, ease: 'easeOut' }}
@@ -75,7 +75,7 @@ function HomeContent() {
                     <MiddlePanel />
                   </motion.div>
                   <motion.div
-                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-white rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)]"
+                    className="w-[320px] xl:w-[350px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-lg overflow-hidden h-[calc(100vh-6rem)] border border-[#38221F]/10"
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.24, ease: 'easeOut' }}
@@ -83,13 +83,13 @@ function HomeContent() {
                     <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} isConfirmed={isConfirmed} />
                   </motion.div>
                 </div>
-                <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
+                <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#38221F]/50 uppercase font-semibold select-none">
                   Desenvolvido por{' '}
                   <a 
                     href="https://www.instagram.com/bhao.agency/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="hover:text-[#363e2d] transition-colors underline decoration-[#363e2d]/20 hover:decoration-[#363e2d]"
+                    className="hover:text-[#38221F] transition-colors underline decoration-[#38221F]/20 hover:decoration-[#38221F]"
                   >
                     Bhao Agency
                   </a>
@@ -102,23 +102,23 @@ function HomeContent() {
               <div className="flex flex-col items-center justify-center min-h-screen py-4">
                 <BackButton onClick={() => setPage('landing')} className="top-3 left-3" />
                 <div className="flex justify-center items-start gap-3 p-4 w-full">
-                  <div className="w-[280px] flex-shrink-0 bg-white rounded-sm shadow-md overflow-hidden min-h-[75vh]">
+                  <div className="w-[280px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-md overflow-hidden min-h-[75vh]">
                     <LeftPanel />
                   </div>
-                  <div className="w-[280px] flex-shrink-0 bg-white rounded-sm shadow-md overflow-hidden min-h-[75vh]">
+                  <div className="w-[280px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-md overflow-hidden min-h-[75vh]">
                     <MiddlePanel />
                   </div>
-                  <div className="w-[280px] flex-shrink-0 bg-white rounded-sm shadow-md overflow-hidden min-h-[75vh]">
+                  <div className="w-[280px] flex-shrink-0 bg-[#F3EBDD] rounded-sm shadow-md overflow-hidden min-h-[75vh]">
                     <RightPanel onOpenRSVP={() => setPage('rsvp')} onOpenGifts={() => setPage('gifts')} isConfirmed={isConfirmed} />
                   </div>
                 </div>
-                <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
+                <footer className="mt-2 text-[9px] tracking-[0.15em] text-[#38221F]/50 uppercase font-semibold select-none">
                   Desenvolvido por{' '}
                   <a 
                     href="https://www.instagram.com/bhao.agency/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="hover:text-[#363e2d] transition-colors underline decoration-[#363e2d]/20 hover:decoration-[#363e2d]"
+                    className="hover:text-[#38221F] transition-colors underline decoration-[#38221F]/20 hover:decoration-[#38221F]"
                   >
                     Bhao Agency
                   </a>

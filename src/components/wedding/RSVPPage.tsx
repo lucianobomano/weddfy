@@ -50,91 +50,91 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
       title: 'Cota para Passagens Aéreas',
       category: 'Lua de Mel',
       price: '150.000 AOA',
-      icon: <Plane className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Plane className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '2',
       title: 'Jantar Romântico na Ilha de Luanda',
       category: 'Lua de Mel',
       price: '80.000 AOA',
-      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Utensils className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '3',
       title: 'Passeio de Barco na Baía de Luanda',
       category: 'Lua de Mel',
       price: '50.000 AOA',
-      icon: <Compass className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Compass className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '4',
       title: 'Micro-ondas Digital',
       category: 'Cozinha',
       price: '95.000 AOA',
-      icon: <ChefHat className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <ChefHat className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '5',
       title: 'Fritadeira sem Óleo (Airfryer)',
       category: 'Cozinha',
       price: '110.000 AOA',
-      icon: <Flame className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Flame className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '6',
       title: 'Máquina de Café Delta Q',
       category: 'Cozinha',
       price: '85.000 AOA',
-      icon: <Coffee className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Coffee className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '7',
       title: 'Aparelho de Jantar (30 peças)',
       category: 'Cozinha',
       price: '75.000 AOA',
-      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Utensils className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '8',
       title: 'Liquidificador de Alta Potência',
       category: 'Cozinha',
       price: '45.000 AOA',
-      icon: <ChefHat className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <ChefHat className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '9',
       title: 'Aspirador de Pó Vertical',
       category: 'Casa & Conforto',
       price: '70.000 AOA',
-      icon: <Home className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Home className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '10',
       title: 'Jogo de Lençóis 400 Fios',
       category: 'Casa & Conforto',
       price: '55.000 AOA',
-      icon: <Bed className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Bed className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '11',
       title: 'Faqueiro de Aço Inox (24 peças)',
       category: 'Cozinha',
       price: '35.000 AOA',
-      icon: <Utensils className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Utensils className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '12',
       title: 'Soundbar Bluetooth',
       category: 'Sala de Estar',
       price: '120.000 AOA',
-      icon: <Music className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <Music className="w-5 h-5 text-[#38221F]" />
     },
     {
       id: '13',
       title: 'Livros (Negócio, Design Gráfico e Arquitectura)',
       category: 'Livros',
       price: '7.250 AOA',
-      icon: <BookOpen className="w-5 h-5 text-[#6b7c5a]" />
+      icon: <BookOpen className="w-5 h-5 text-[#38221F]" />
     }
   ];
 
@@ -212,7 +212,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
       {/* Back button */}
       <button
         onClick={onBack}
-        className="fixed top-4 left-4 z-50 w-9 h-9 rounded-full flex items-center justify-center bg-white shadow-md border border-[#e0e0e0] transition-colors hover:bg-gray-50 animate-fade-in"
+        className="fixed top-4 left-4 z-50 w-9 h-9 rounded-full flex items-center justify-center bg-[#F3EBDD] shadow-md border border-[#e0e0e0] transition-colors hover:bg-gray-50 animate-fade-in"
         title="Voltar"
       >
         <svg
@@ -232,7 +232,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
 
       {/* Main RSVP Card */}
       <motion.div
-        className="w-full max-w-[350px] min-h-[720px] bg-[#6B7C5A] flex flex-col justify-between py-9 px-5 relative overflow-hidden shadow-lg border-[6px] border-white/25"
+        className="w-full max-w-[350px] min-h-[720px] bg-[#38221F] flex flex-col justify-between py-9 px-5 relative overflow-hidden shadow-lg border-[6px] border-[#F3EBDD]/25"
         style={{
           backgroundImage: "url('/images/bg02.svg')",
           backgroundSize: 'cover',
@@ -243,7 +243,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         {/* Top Header */}
-        <div className="w-full text-center text-white pt-2 select-none">
+        <div className="w-full text-center text-[#F3EBDD] pt-2 select-none">
           <p className="text-[10px] tracking-[0.25em] uppercase opacity-80 mb-1 font-bold">
             CONFIRMAÇÃO
           </p>
@@ -255,10 +255,10 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
           </h2>
         </div>
 
-        {/* White Form Card Container */}
-        <div className="w-full bg-white px-5 py-6 my-5 shadow-md flex flex-col select-none">
+        {/* Form Card Container */}
+        <div className="w-full bg-[#F3EBDD] px-5 py-6 my-5 shadow-md flex flex-col select-none">
           <p
-            className="text-center text-[11px] leading-relaxed mb-5 font-bold text-[#363e2d]"
+            className="text-center text-[11px] leading-relaxed mb-5 font-bold text-[#38221F]"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             Preencha o formulário abaixo para confirmar a sua presença no nosso casamento
@@ -267,7 +267,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Nome Completo */}
             <div>
-              <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
+              <label className="text-[11px] font-semibold text-[#38221F] mb-1.5 block">
                 Nome completo
               </label>
               <Input
@@ -275,21 +275,21 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                 required
                 value={form.name}
                 onChange={(e) => h('name', e.target.value)}
-                className="h-9 text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40"
+                className="h-9 text-xs rounded-none border-[#38221F]/30 focus-visible:ring-[#38221F]/30 bg-[#F3EBDD] text-[#38221F] placeholder:text-[#38221F]/40"
               />
             </div>
 
 
             {/* Acompanhante Dropdown */}
             <div>
-              <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
+              <label className="text-[11px] font-semibold text-[#38221F] mb-1.5 block">
                 Acompanhante
               </label>
               <Select value={form.companion} onValueChange={(v) => h('companion', v)}>
-                <SelectTrigger className="h-9 text-xs rounded-none border-[#363e2d]/30 focus:ring-[#6b7c5a]/30 bg-white text-[#363e2d]">
+                <SelectTrigger className="h-9 text-xs rounded-none border-[#38221F]/30 focus:ring-[#38221F]/30 bg-[#F3EBDD] text-[#38221F]">
                   <SelectValue placeholder="Vai com acompanhante" />
                 </SelectTrigger>
-                <SelectContent className="rounded-none">
+                <SelectContent className="rounded-none bg-[#F3EBDD]">
                   <SelectItem value="yes">Sim</SelectItem>
                   <SelectItem value="no">Não</SelectItem>
                 </SelectContent>
@@ -299,25 +299,25 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
             {/* Optional Companion Name */}
             {form.companion === 'yes' && (
               <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-1">
-                <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
+                <label className="text-[11px] font-semibold text-[#38221F] mb-1.5 block">
                   Nome do acompanhante
                 </label>
                 <Input
                   placeholder="Nome do acompanhante"
                   value={form.companionName}
                   onChange={(e) => h('companionName', e.target.value)}
-                  className="h-9 text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40"
+                  className="h-9 text-xs rounded-none border-[#38221F]/30 focus-visible:ring-[#38221F]/30 bg-[#F3EBDD] text-[#38221F] placeholder:text-[#38221F]/40"
                 />
               </motion.div>
             )}
 
             {/* Deseja nos presentear? Radio Buttons */}
             <div>
-              <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
+              <label className="text-[11px] font-semibold text-[#38221F] mb-1.5 block">
                 Gostaria de escolher uma sugestão de presente?
               </label>
               <div className="flex gap-6 mt-1 mb-2">
-                <label className="flex items-center gap-2 text-xs text-[#363e2d] cursor-pointer font-medium">
+                <label className="flex items-center gap-2 text-xs text-[#38221F] cursor-pointer font-medium">
                   <input
                     type="radio"
                     name="wantsGift"
@@ -327,11 +327,11 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                       setShowGiftDropdown(true);
                       h('gift', '');
                     }}
-                    className="w-3.5 h-3.5 accent-[#6b7c5a]"
+                    className="w-3.5 h-3.5 accent-[#38221F]"
                   />
                   Sim
                 </label>
-                <label className="flex items-center gap-2 text-xs text-[#363e2d] cursor-pointer font-medium">
+                <label className="flex items-center gap-2 text-xs text-[#38221F] cursor-pointer font-medium">
                   <input
                     type="radio"
                     name="wantsGift"
@@ -341,7 +341,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                       setShowGiftDropdown(false);
                       h('gift', 'Presença');
                     }}
-                    className="w-3.5 h-3.5 accent-[#6b7c5a]"
+                    className="w-3.5 h-3.5 accent-[#38221F]"
                   />
                   Não
                 </label>
@@ -356,7 +356,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                 className="space-y-3"
               >
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-[#363e2d] block">
+                  <label className="text-[11px] font-semibold text-[#38221F] block">
                     Sugestão de Presente
                   </label>
                   <div className="flex gap-2 items-center">
@@ -367,13 +367,13 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                         readOnly
                         value={form.gift}
                         onClick={() => setShowGiftsModal(true)}
-                        className="h-9 text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40 cursor-pointer"
+                        className="h-9 text-xs rounded-none border-[#38221F]/30 focus-visible:ring-[#38221F]/30 bg-[#F3EBDD] text-[#38221F] placeholder:text-[#38221F]/40 cursor-pointer"
                       />
                     </div>
                     <button
                       type="button"
                       onClick={() => setShowGiftsModal(true)}
-                      className="h-9 px-3 bg-[#6b7c5a] hover:bg-[#586749] text-white flex items-center justify-center transition-colors shadow-sm flex-shrink-0"
+                      className="h-9 px-3 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] flex items-center justify-center transition-colors shadow-sm flex-shrink-0"
                       title="Ver todas as sugestões"
                     >
                       <Gift className="w-4 h-4" />
@@ -382,27 +382,27 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                 </div>
 
                 {/* Coordenadas Bancárias */}
-                <div className="bg-[#f5f2ed] p-3 border border-[#6b7c5a]/15 space-y-2 rounded-none text-left">
-                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                <div className="bg-[#F3EBDD] p-3 border border-[#38221F]/15 space-y-2 rounded-none text-left">
+                  <div className="flex justify-between text-[10px] font-semibold text-[#38221F]">
                     <span>Banco:</span>
                     <span className="font-bold">Banco Angolano de Investimentos (BAI)</span>
                   </div>
-                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                  <div className="flex justify-between text-[10px] font-semibold text-[#38221F]">
                     <span>Titular:</span>
                     <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
                   </div>
-                  <div className="flex justify-between text-[10px] font-semibold text-gray-700">
+                  <div className="flex justify-between text-[10px] font-semibold text-[#38221F]">
                     <span>Express:</span>
                     <span className="font-bold">+244931931304</span>
                   </div>
-                  <div className="flex flex-col gap-1 text-[10px] font-semibold text-gray-700 pt-1.5 border-t border-[#6b7c5a]/10">
+                  <div className="flex flex-col gap-1 text-[10px] font-semibold text-[#38221F] pt-1.5 border-t border-[#38221F]/10">
                     <span>IBAN (Angola):</span>
-                    <div className="flex items-center justify-between gap-2 bg-white border border-[#6b7c5a]/20 p-2 rounded-none select-all font-mono text-[9px]">
+                    <div className="flex items-center justify-between gap-2 bg-[#F3EBDD] border border-[#38221F]/20 p-2 rounded-none select-all font-mono text-[9px]">
                       <span>AO06 0040 0000 0459 2024 1013 8</span>
                       <button
                         type="button"
                         onClick={handleCopyIBAN}
-                        className="p-1 text-[#6b7c5a] hover:bg-[#6b7c5a]/10 rounded-full transition-colors flex-shrink-0"
+                        className="p-1 text-[#38221F] hover:bg-[#38221F]/10 rounded-full transition-colors flex-shrink-0"
                         title="Copiar IBAN"
                       >
                         {copiedIBAN ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
@@ -415,14 +415,14 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
 
             {/* Message */}
             <div>
-              <label className="text-[11px] font-semibold text-[#363e2d] mb-1.5 block">
+              <label className="text-[11px] font-semibold text-[#38221F] mb-1.5 block">
                 Mensagem para os noivos
               </label>
               <Textarea
                 placeholder="Deixe uma mensagem especial (opcional)"
                 value={form.message}
                 onChange={(e) => h('message', e.target.value)}
-                className="text-xs rounded-none border-[#363e2d]/30 focus-visible:ring-[#6b7c5a]/30 bg-white text-[#363e2d] placeholder:text-[#363e2d]/40 resize-none h-[72px]"
+                className="text-xs rounded-none border-[#38221F]/30 focus-visible:ring-[#38221F]/30 bg-[#F3EBDD] text-[#38221F] placeholder:text-[#38221F]/40 resize-none h-[72px]"
               />
             </div>
 
@@ -430,7 +430,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-[42px] bg-[#363e2d] hover:bg-[#2d3224] text-white text-[11px] font-bold tracking-[0.1em] uppercase rounded-none mt-2.5 flex items-center justify-center gap-1.5 transition-colors border-none"
+              className="w-full h-[42px] bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-[11px] font-bold tracking-[0.1em] uppercase rounded-none mt-2.5 flex items-center justify-center gap-1.5 transition-colors border-none"
             >
               {isSubmitting && <Loader2 className="w-3.5 h-3.5 animate-spin mr-1" />}
               {isSubmitting ? 'Confirmando...' : 'CONFIRMAR PRESENÇA'}
@@ -469,7 +469,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
         </div>
 
         {/* Card Footer */}
-        <div className="w-full text-center text-white pb-2 select-none">
+        <div className="w-full text-center text-[#F3EBDD] pb-2 select-none">
           <p 
             className="text-[13px] tracking-[0.1em] font-extrabold uppercase"
             style={{ fontFamily: 'var(--font-inter)' }}
@@ -493,12 +493,12 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-[#f5f2ed] border-[6px] border-white/20 shadow-xl max-w-sm w-full max-h-[85vh] flex flex-col p-5 relative overflow-hidden"
+              className="bg-[#F3EBDD] border-[6px] border-[#F3EBDD]/20 shadow-xl max-w-sm w-full max-h-[85vh] flex flex-col p-5 relative overflow-hidden"
             >
-              <h3 className="text-sm font-bold uppercase text-[#363e2d] tracking-wider mb-2.5 text-center">
+              <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider mb-2.5 text-center">
                 Sugestões de Presentes
               </h3>
-              <p className="text-[11px] text-[#363e2d]/70 text-center mb-4">
+              <p className="text-[11px] text-[#38221F]/70 text-center mb-4">
                 Selecione uma das opções abaixo para preencher o formulário:
               </p>
               
@@ -509,14 +509,14 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                     h('gift', 'Contribuição Financeira (Pix/IBAN)');
                     setShowGiftsModal(false);
                   }}
-                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                  className="p-2.5 bg-[#F3EBDD] hover:bg-[#38221F]/10 border border-[#38221F]/10 hover:border-[#38221F]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
                 >
-                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
-                    <Gift className="w-4 h-4 text-[#6b7c5a]" />
+                  <div className="p-1.5 bg-[#38221F]/10 rounded-full flex-shrink-0">
+                    <Gift className="w-4 h-4 text-[#38221F]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-semibold text-[#363e2d]">Contribuição Financeira (Pix/IBAN)</p>
-                    <p className="text-[9px] text-gray-500">Qualquer valor via transferência ou depósito</p>
+                    <p className="text-[11px] font-semibold text-[#38221F]">Contribuição Financeira (Pix/IBAN)</p>
+                    <p className="text-[9px] text-[#38221F]/60">Qualquer valor via transferência ou depósito</p>
                   </div>
                 </div>
 
@@ -525,14 +525,14 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                     h('gift', 'Outro Presente Físico');
                     setShowGiftsModal(false);
                   }}
-                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                  className="p-2.5 bg-[#F3EBDD] hover:bg-[#38221F]/10 border border-[#38221F]/10 hover:border-[#38221F]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
                 >
-                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
-                    <Gift className="w-4 h-4 text-[#6b7c5a]" />
+                  <div className="p-1.5 bg-[#38221F]/10 rounded-full flex-shrink-0">
+                    <Gift className="w-4 h-4 text-[#38221F]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-semibold text-[#363e2d]">Outro Presente Físico</p>
-                    <p className="text-[9px] text-gray-500">Sugira ou ofereça outro presente físico</p>
+                    <p className="text-[11px] font-semibold text-[#38221F]">Outro Presente Físico</p>
+                    <p className="text-[9px] text-[#38221F]/60">Sugira ou ofereça outro presente físico</p>
                   </div>
                 </div>
 
@@ -541,19 +541,19 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                     h('gift', 'Apenas presença (O melhor presente)');
                     setShowGiftsModal(false);
                   }}
-                  className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                  className="p-2.5 bg-[#F3EBDD] hover:bg-[#38221F]/10 border border-[#38221F]/10 hover:border-[#38221F]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
                 >
-                  <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-[#6b7c5a]" />
+                  <div className="p-1.5 bg-[#38221F]/10 rounded-full flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-[#38221F]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-semibold text-[#363e2d]">Apenas presença</p>
-                    <p className="text-[9px] text-gray-500">O melhor presente é ter a sua companhia</p>
+                    <p className="text-[11px] font-semibold text-[#38221F]">Apenas presença</p>
+                    <p className="text-[9px] text-[#38221F]/60">O melhor presente é ter a sua companhia</p>
                   </div>
                 </div>
 
-                <div className="border-t border-[#363e2d]/10 my-2 pt-2">
-                  <p className="text-[9px] font-bold text-[#363e2d]/60 uppercase tracking-wider mb-2">Sugestões de Presentes:</p>
+                <div className="border-t border-[#38221F]/10 my-2 pt-2">
+                  <p className="text-[9px] font-bold text-[#38221F]/60 uppercase tracking-wider mb-2">Sugestões de Presentes:</p>
                 </div>
 
                 {giftSuggestions.map((item) => (
@@ -563,14 +563,14 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
                       h('gift', item.title);
                       setShowGiftsModal(false);
                     }}
-                    className="p-2.5 bg-white hover:bg-[#6b7c5a]/10 border border-[#363e2d]/10 hover:border-[#6b7c5a]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
+                    className="p-2.5 bg-[#F3EBDD] hover:bg-[#38221F]/10 border border-[#38221F]/10 hover:border-[#38221F]/30 cursor-pointer transition-all flex items-center gap-3 active:scale-[0.99]"
                   >
-                    <div className="p-1.5 bg-[#6b7c5a]/10 rounded-full flex-shrink-0">
+                    <div className="p-1.5 bg-[#38221F]/10 rounded-full flex-shrink-0">
                       {item.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[11px] font-semibold text-[#363e2d] truncate">{item.title}</p>
-                      <p className="text-[9px] text-gray-500">{item.category} • {item.price}</p>
+                      <p className="text-[11px] font-semibold text-[#38221F] truncate">{item.title}</p>
+                      <p className="text-[9px] text-[#38221F]/60">{item.category} • {item.price}</p>
                     </div>
                   </div>
                 ))}
@@ -579,7 +579,7 @@ export default function RSVPPage({ onBack, initialGuestName = '', onConfirmSucce
               <button
                 type="button"
                 onClick={() => setShowGiftsModal(false)}
-                className="mt-4 w-full py-2 bg-[#363e2d] hover:bg-[#2d3224] text-white text-[11px] font-bold tracking-[0.1em] uppercase transition-colors"
+                className="mt-4 w-full py-2 bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-[11px] font-bold tracking-[0.1em] uppercase transition-colors"
               >
                 Fechar
               </button>

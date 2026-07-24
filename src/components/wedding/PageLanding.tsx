@@ -18,7 +18,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
     >
       {/* Wedding Card container using the exact aspect ratio of CAPA.svg (349x621) */}
       <motion.div
-        className="relative w-[340px] h-[605px] xs:w-[350px] xs:h-[622px] rounded-[4px] overflow-hidden select-none bg-[#6b7c5a]"
+        className="relative w-[340px] h-[605px] xs:w-[350px] xs:h-[622px] rounded-[4px] overflow-hidden select-none bg-[#38221F]"
         style={{
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 40px rgba(0, 0, 0, 0.15)',
         }}
@@ -40,7 +40,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
         {/* Overlay the text "CONVITE" and the calligraphic names logo from LOGO.svg */}
         <div className="absolute inset-x-0 top-[60px] xs:top-[70px] flex flex-col items-center text-center z-10 px-6">
           <p
-            className="text-[11px] tracking-[0.25em] text-white font-semibold mb-6 uppercase"
+            className="text-[11px] tracking-[0.25em] text-[#F3EBDD] font-semibold mb-6 uppercase"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             CONVITE
@@ -60,8 +60,8 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
       {/* Action Button below the card */}
       <motion.button
         onClick={onOpen}
-        className="mt-8 px-9 py-2.5 text-white text-[10px] tracking-[0.2em] font-medium rounded-full shadow-md transition-all hover:bg-[#20241a] hover:shadow-lg active:scale-[0.98]"
-        style={{ background: '#2c3224' }}
+        className="mt-8 px-9 py-2.5 text-[#F3EBDD] text-[10px] tracking-[0.2em] font-medium rounded-full shadow-md transition-all hover:bg-[#261614] hover:shadow-lg active:scale-[0.98]"
+        style={{ background: '#38221F' }}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
         initial={{ opacity: 0, y: 15 }}
@@ -73,7 +73,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
 
       {/* Footer */}
       <motion.div 
-        className="mt-12 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none"
+        className="mt-12 text-[9px] tracking-[0.15em] text-[#38221F]/50 uppercase font-semibold select-none"
         style={{ fontFamily: 'var(--font-inter)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -84,7 +84,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
           href="https://www.instagram.com/bhao.agency/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="hover:text-[#363e2d] transition-colors underline decoration-[#363e2d]/20 hover:decoration-[#363e2d]"
+          className="hover:text-[#38221F] transition-colors underline decoration-[#38221F]/20 hover:decoration-[#38221F]"
         >
           Bhao Agency
         </a>

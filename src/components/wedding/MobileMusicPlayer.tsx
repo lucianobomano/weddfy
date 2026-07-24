@@ -61,20 +61,20 @@ export default function MobileMusicPlayer() {
 
   return (
     <div className="w-full flex flex-col items-center px-4">
-      {/* Track progress slider */}
+        {/* Track progress slider */}
       <div 
         ref={sliderRef}
         onClick={handleSliderClick}
-        className="w-full h-[5px] bg-white/30 rounded-full cursor-pointer relative mb-6 flex items-center"
+        className="w-full h-[5px] bg-[#F3EBDD]/30 rounded-full cursor-pointer relative mb-6 flex items-center"
       >
         {/* Active progress */}
         <div 
-          className="h-full bg-white rounded-full"
+          className="h-full bg-[#F3EBDD] rounded-full"
           style={{ width: `${progress}%` }}
         />
         {/* Handle circle */}
         <div 
-          className="absolute w-3.5 h-3.5 bg-white rounded-full shadow-md -translate-y-1/2 top-1/2"
+          className="absolute w-3.5 h-3.5 bg-[#F3EBDD] rounded-full shadow-md -translate-y-1/2 top-1/2"
           style={{ left: `calc(${progress}% - 7px)` }}
         />
       </div>
@@ -104,15 +104,15 @@ export default function MobileMusicPlayer() {
         {/* Play/Pause Circle */}
         <button 
           onClick={() => setIsPlaying(!isPlaying)}
-          className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform"
+          className="w-12 h-12 rounded-full bg-[#F3EBDD] flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform"
         >
           {isPlaying ? (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#6b7c5a">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38221F">
               <rect x="6" y="4" width="4" height="16" />
               <rect x="14" y="4" width="4" height="16" />
             </svg>
           ) : (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#6b7c5a" className="translate-x-[2px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38221F" className="translate-x-[2px]">
               <polygon points="5,3 19,12 5,21" />
             </svg>
           )}

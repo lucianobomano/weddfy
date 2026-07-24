@@ -43,8 +43,8 @@ export default function RootLayout({
         className={`${greatVibes.variable} ${playfair.variable} ${inter.variable} antialiased`}
         style={{
           fontFamily: "var(--font-inter), sans-serif",
-          background: "#f5f2ed",
-          color: "#333333",
+          background: "#F3EBDD",
+          color: "#38221F",
         }}
       >
         {children}

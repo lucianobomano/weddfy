@@ -44,7 +44,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Lua de Mel',
       price: '150.000 AOA',
       progress: 0,
-      icon: <Plane className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Plane className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '2',
@@ -52,7 +52,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Lua de Mel',
       price: '80.000 AOA',
       progress: 0,
-      icon: <Utensils className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Utensils className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '3',
@@ -60,7 +60,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Lua de Mel',
       price: '50.000 AOA',
       progress: 0,
-      icon: <Compass className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Compass className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '4',
@@ -68,7 +68,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '95.000 AOA',
       progress: 0,
-      icon: <ChefHat className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <ChefHat className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '5',
@@ -76,7 +76,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '110.000 AOA',
       progress: 0,
-      icon: <Flame className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Flame className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '6',
@@ -84,7 +84,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '85.000 AOA',
       progress: 0,
-      icon: <Coffee className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Coffee className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '7',
@@ -92,7 +92,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '75.000 AOA',
       progress: 0,
-      icon: <Utensils className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Utensils className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '8',
@@ -100,7 +100,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '45.000 AOA',
       progress: 0,
-      icon: <ChefHat className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <ChefHat className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '9',
@@ -108,7 +108,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Casa & Conforto',
       price: '70.000 AOA',
       progress: 0,
-      icon: <Home className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Home className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '10',
@@ -116,7 +116,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Casa & Conforto',
       price: '55.000 AOA',
       progress: 0,
-      icon: <Bed className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Bed className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '11',
@@ -124,7 +124,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Cozinha',
       price: '35.000 AOA',
       progress: 0,
-      icon: <Utensils className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Utensils className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '12',
@@ -132,7 +132,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Sala de Estar',
       price: '120.000 AOA',
       progress: 0,
-      icon: <Music className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <Music className="w-6 h-6 text-[#38221F]" />
     },
     {
       id: '13',
@@ -140,7 +140,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       category: 'Livros',
       price: '7.250 AOA',
       progress: 0,
-      icon: <BookOpen className="w-6 h-6 text-[#6b7c5a]" />
+      icon: <BookOpen className="w-6 h-6 text-[#38221F]" />
     }
   ];
 
@@ -151,27 +151,27 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
   };
 
   return (
-    <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 bg-[#f5f2ed] select-none">
+    <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 bg-[#F3EBDD] select-none">
       {/* Back button */}
       <button
         onClick={onBack}
-        className="fixed top-4 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-md border border-[#e0e0e0] transition-all hover:scale-105 active:scale-95"
+        className="fixed top-4 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-[#F3EBDD] shadow-md border border-[#e0e0e0] transition-all hover:scale-105 active:scale-95"
       >
-        <ArrowLeft className="w-5 h-5 text-[#6b7c5a]" />
+        <ArrowLeft className="w-5 h-5 text-[#38221F]" />
       </button>
 
       <div className="max-w-4xl mx-auto text-center mt-6">
         {/* Title */}
         <div className="flex justify-center mb-2">
-          <Heart className="w-8 h-8 fill-[#6B7C5A] text-[#6B7C5A]" />
+          <Heart className="w-8 h-8 fill-[#38221F] text-[#38221F]" />
         </div>
         <h1 
-          className="text-4xl sm:text-5xl text-[#363e2d] mb-4"
+          className="text-4xl sm:text-5xl text-[#38221F] mb-4"
           style={{ fontFamily: 'var(--font-script)' }}
         >
           Sugestões de Presentes
         </h1>
-        <p className="text-xs sm:text-sm text-[#363e2d]/70 max-w-xl mx-auto leading-relaxed font-semibold px-4">
+        <p className="text-xs sm:text-sm text-[#38221F]/70 max-w-xl mx-auto leading-relaxed font-semibold px-4">
           A vossa presença no nosso casamento é o maior presente que poderíamos receber. 
           No entanto, para quem desejar mimar-nos nesta nova etapa em Luanda, 
           deixamos algumas sugestões simbólicas de presentes e cotas para a nossa lua de mel.
@@ -182,34 +182,34 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
           {gifts.map((gift) => (
             <div 
               key={gift.id} 
-              className="bg-white p-6 shadow-sm border border-[#6b7c5a]/15 rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
-                  <span className="text-[9px] uppercase tracking-[0.2em] bg-[#6b7c5a]/10 text-[#6b7c5a] px-2 py-0.5 font-bold rounded-sm">
+                  <span className="text-[9px] uppercase tracking-[0.2em] bg-[#38221F]/10 text-[#38221F] px-2 py-0.5 font-bold rounded-sm">
                     {gift.category}
                   </span>
-                  <div className="p-2 bg-[#f5f2ed] rounded-full">
+                  <div className="p-2 bg-[#F3EBDD] rounded-full border border-[#38221F]/10">
                     {gift.icon}
                   </div>
                 </div>
                 
                 <h3 
-                  className="text-lg text-left text-[#363e2d] font-normal"
+                  className="text-lg text-left text-[#38221F] font-normal"
                   style={{ fontFamily: 'var(--font-playfair)' }}
                 >
                   {gift.title}
                 </h3>
                 
                 <div className="mt-4">
-                  <div className="flex justify-between text-[11px] text-[#363e2d]/65 font-bold mb-1.5">
+                  <div className="flex justify-between text-[11px] text-[#38221F]/65 font-bold mb-1.5">
                     <span>Financiado: {gift.progress}%</span>
                     <span>Valor Sugerido: {gift.price}</span>
                   </div>
                   {/* Progress Bar */}
-                  <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="w-full h-2 bg-black/5 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-[#6b7c5a] rounded-full transition-all duration-500"
+                      className="h-full bg-[#38221F] rounded-full transition-all duration-500"
                       style={{ width: `${gift.progress}%` }}
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
 
               <button
                 onClick={() => setSelectedGift(gift)}
-                className="w-full mt-6 py-2.5 bg-[#6b7c5a] hover:bg-[#586749] text-white text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm shadow-sm transition-colors"
+                className="w-full mt-6 py-2.5 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm shadow-sm transition-colors"
               >
                 Oferecer Presente / Contribuir
               </button>
@@ -227,7 +227,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
         </div>
 
         {/* General Bank Details Section */}
-        <div className="bg-[#6b7c5a] text-white p-8 mt-12 rounded-sm shadow-md text-left mx-2 relative overflow-hidden">
+        <div className="bg-[#38221F] text-[#F3EBDD] p-8 mt-12 rounded-sm shadow-md text-left mx-2 relative overflow-hidden">
           <div className="absolute right-[-20px] bottom-[-20px] opacity-10">
             <Gift className="w-48 h-48" />
           </div>
@@ -237,7 +237,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
           >
             Contribuição por Transferência Bancária
           </h3>
-          <p className="text-xs text-white/80 leading-relaxed max-w-2xl mb-6 font-semibold">
+          <p className="text-xs text-[#F3EBDD]/80 leading-relaxed max-w-2xl mb-6 font-semibold">
             Caso prefira fazer uma contribuição livre para a nossa nova etapa de vida, 
             disponibilizamos abaixo os dados bancários angolanos (BAI). Agradecemos o envio do 
             comprovativo para o nosso contacto ou anexo no RSVP.
@@ -245,19 +245,19 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
 
           <div className="space-y-3 max-w-md bg-white/10 p-5 rounded-sm border border-white/15 backdrop-blur-sm">
             <div className="flex justify-between text-xs font-semibold">
-              <span className="text-white/60">Banco:</span>
+              <span className="text-[#F3EBDD]/60">Banco:</span>
               <span className="font-bold">BAI (Banco Angolano de Investimentos)</span>
             </div>
             <div className="flex justify-between text-xs font-semibold">
-              <span className="text-white/60">Titular:</span>
+              <span className="text-[#F3EBDD]/60">Titular:</span>
               <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
             </div>
             <div className="flex justify-between text-xs font-semibold">
-              <span className="text-white/60">Express:</span>
+              <span className="text-[#F3EBDD]/60">Express:</span>
               <span className="font-bold">+244931931304</span>
             </div>
             <div className="flex justify-between items-center text-xs font-semibold gap-4">
-              <span className="text-white/60">IBAN:</span>
+              <span className="text-[#F3EBDD]/60">IBAN:</span>
               <div className="flex items-center gap-2 select-all font-mono text-[11px] bg-black/10 px-2 py-1 rounded-sm">
                 <span>AO06 0040 0000 0459 2024 1013 8</span>
               </div>
@@ -265,7 +265,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
             <div className="pt-2 flex justify-end">
               <button
                 onClick={handleCopyIBAN}
-                className="flex items-center gap-1.5 px-4 py-2 bg-white text-[#6b7c5a] hover:bg-gray-100 text-[10px] uppercase font-bold tracking-[0.1em] rounded-sm transition-colors shadow-sm"
+                className="flex items-center gap-1.5 px-4 py-2 bg-[#F3EBDD] text-[#38221F] hover:bg-white text-[10px] uppercase font-bold tracking-[0.1em] rounded-sm transition-colors shadow-sm"
               >
                 {copiedIBAN ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 {copiedIBAN ? 'IBAN Copiado!' : 'Copiar IBAN'}
@@ -275,18 +275,18 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
         </div>
 
         {/* Envelope Info */}
-        <p className="text-[10px] text-[#363e2d]/60 font-semibold tracking-[0.05em] uppercase mt-8">
+        <p className="text-[10px] text-[#38221F]/60 font-semibold tracking-[0.05em] uppercase mt-8">
           * Para presentes em envelope físico, haverá uma caixa própria na entrada da receção.
         </p>
 
         {/* Footer */}
-        <footer className="mt-12 pb-10 text-[9px] tracking-[0.15em] text-[#363e2d]/50 uppercase font-semibold select-none">
+        <footer className="mt-12 pb-10 text-[9px] tracking-[0.15em] text-[#38221F]/50 uppercase font-semibold select-none">
           Desenvolvido por{' '}
           <a 
             href="https://www.instagram.com/bhao.agency/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hover:text-[#363e2d] transition-colors underline decoration-[#363e2d]/20 hover:decoration-[#363e2d]"
+            className="hover:text-[#38221F] transition-colors underline decoration-[#38221F]/20 hover:decoration-[#38221F]"
           >
             Bhao Agency
           </a>
@@ -296,7 +296,7 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
       {/* Contribution Modal */}
       {selectedGift && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 animate-fade-in">
-          <div className="bg-white w-full max-w-md p-6 shadow-2xl border border-[#6b7c5a]/25 rounded-sm relative">
+          <div className="bg-[#F3EBDD] w-full max-w-md p-6 shadow-2xl border border-[#38221F]/25 rounded-sm relative">
             <button 
               onClick={() => setSelectedGift(null)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 font-bold text-lg p-1"
@@ -305,48 +305,48 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
             </button>
 
             <div className="text-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-[#6b7c5a]/10 flex items-center justify-center mx-auto mb-3">
-                <Gift className="w-6 h-6 text-[#6b7c5a]" />
+              <div className="w-12 h-12 rounded-full bg-[#38221F]/10 flex items-center justify-center mx-auto mb-3">
+                <Gift className="w-6 h-6 text-[#38221F]" />
               </div>
               <h3 
-                className="text-xl text-[#363e2d] font-normal"
+                className="text-xl text-[#38221F] font-normal"
                 style={{ fontFamily: 'var(--font-playfair)' }}
               >
                 Contribuir para:
               </h3>
-              <p className="text-base text-[#6b7c5a] font-bold mt-1">
+              <p className="text-base text-[#38221F] font-bold mt-1">
                 {selectedGift.title}
               </p>
-              <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider mt-0.5">
+              <p className="text-[11px] text-[#38221F]/60 font-semibold uppercase tracking-wider mt-0.5">
                 Valor Sugerido: {selectedGift.price}
               </p>
             </div>
 
-            <p className="text-xs text-gray-600 leading-relaxed mb-6 font-semibold">
+            <p className="text-xs text-[#38221F]/80 leading-relaxed mb-6 font-semibold">
               Para efetuar a sua contribuição, por favor faça uma transferência bancária (IBAN) 
               ou depósito para a conta abaixo. Se desejar, envie o comprovativo aos noivos.
             </p>
 
-            <div className="bg-[#f5f2ed] p-4 border border-[#6b7c5a]/15 space-y-2.5 rounded-sm text-left">
-              <div className="flex justify-between text-[11px] font-semibold text-gray-700">
+            <div className="bg-[#F3EBDD] p-4 border border-[#38221F]/15 space-y-2.5 rounded-sm text-left">
+              <div className="flex justify-between text-[11px] font-semibold text-[#38221F]">
                 <span>Banco:</span>
                 <span className="font-bold">Banco Angolano de Investimentos (BAI)</span>
               </div>
-              <div className="flex justify-between text-[11px] font-semibold text-gray-700">
+              <div className="flex justify-between text-[11px] font-semibold text-[#38221F]">
                 <span>Titular:</span>
                 <span className="font-bold">Auriscidia Tatiana Sicato Lopes</span>
               </div>
-              <div className="flex justify-between text-[11px] font-semibold text-gray-700">
+              <div className="flex justify-between text-[11px] font-semibold text-[#38221F]">
                 <span>Express:</span>
                 <span className="font-bold">+244931931304</span>
               </div>
-              <div className="flex flex-col gap-1 text-[11px] font-semibold text-gray-700 pt-1.5 border-t border-[#6b7c5a]/10">
+              <div className="flex flex-col gap-1 text-[11px] font-semibold text-[#38221F] pt-1.5 border-t border-[#38221F]/10">
                 <span>IBAN (Angola):</span>
-                <div className="flex items-center justify-between gap-2 bg-white border border-[#6b7c5a]/20 p-2 rounded-sm select-all font-mono text-[10.5px]">
+                <div className="flex items-center justify-between gap-2 bg-[#F3EBDD] border border-[#38221F]/20 p-2 rounded-sm select-all font-mono text-[10.5px]">
                   <span>AO06 0040 0000 0459 2024 1013 8</span>
                   <button
                     onClick={handleCopyIBAN}
-                    className="p-1 text-[#6b7c5a] hover:bg-[#6b7c5a]/10 rounded-full transition-colors flex-shrink-0"
+                    className="p-1 text-[#38221F] hover:bg-[#38221F]/10 rounded-full transition-colors flex-shrink-0"
                     title="Copiar IBAN"
                   >
                     {copiedIBAN ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -358,13 +358,13 @@ export default function GiftsPage({ onBack, initialGuestName = '' }: GiftsPagePr
             <div className="flex flex-col gap-2 mt-6">
               <button
                 onClick={handleCopyIBAN}
-                className="w-full py-2.5 bg-[#6b7c5a] hover:bg-[#586749] text-white text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm shadow-sm transition-colors"
+                className="w-full py-2.5 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm shadow-sm transition-colors"
               >
                 {copiedIBAN ? 'IBAN Copiado!' : 'Copiar IBAN da Conta'}
               </button>
               <button
                 onClick={() => setSelectedGift(null)}
-                className="w-full py-2.5 border border-gray-200 text-gray-500 hover:bg-gray-50 text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm transition-colors"
+                className="w-full py-2.5 border border-[#38221F]/20 text-[#38221F] hover:bg-[#38221F]/10 text-[10px] tracking-[0.15em] uppercase font-bold rounded-sm transition-colors"
               >
                 Fechar
               </button>

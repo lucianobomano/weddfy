@@ -30,7 +30,7 @@ export default function CountdownTimer({ variant = 'dark' }: CountdownTimerProps
   }, []);
 
   const isLight = variant === 'light';
-  const textColorClass = isLight ? 'text-[#363e2d]' : 'text-white';
+  const textColorClass = isLight ? 'text-[#38221F]' : 'text-[#F3EBDD]';
 
   return (
     <div className={`flex justify-center gap-3 sm:gap-4 ${textColorClass} select-none`}>
@@ -57,7 +57,7 @@ function TimeBlock({ value, label, isLight }: { value: string; label: string; is
       </div>
       <div 
         className={`text-[8px] sm:text-[9px] tracking-[0.15em] mt-1.5 font-bold ${
-          isLight ? 'text-[#363e2d]/60' : 'text-white/70'
+          isLight ? 'text-[#38221F]/60' : 'text-[#F3EBDD]/70'
         }`}
       >
         {label}
@@ -70,7 +70,7 @@ function Separator({ isLight }: { isLight: boolean }) {
   return (
     <div 
       className={`text-2xl sm:text-3xl font-light pb-4 flex items-center justify-center ${
-        isLight ? 'text-[#363e2d]/50 translate-y-[-4px]' : 'text-white/50'
+        isLight ? 'text-[#38221F]/50 translate-y-[-4px]' : 'text-[#F3EBDD]/50'
       }`}
     >
       :
