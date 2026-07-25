@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import { 
   Users, 
   Gift, 
@@ -13,7 +15,8 @@ import {
   Heart,
   MessageSquare,
   Plus,
-  ExternalLink
+  ExternalLink,
+  FileText
 } from 'lucide-react';
 
 interface RSVP {
@@ -249,6 +252,102 @@ export default function AdminPage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  // PDF Export
+  const handleExportPDF = () => {
+    if (rsvps.length === 0) return;
+
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4',
+    });
+
+    // Elegant Header Title
+    doc.setFillColor(56, 34, 31);
+    doc.rect(0, 0, 210, 24, 'F');
+
+    doc.setTextColor(243, 235, 221);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Luciano & Auriscidia - Lista de Convidados', 14, 15);
+
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'normal');
+    const nowStr = new Date().toLocaleDateString('pt-PT', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    doc.text(`Data: ${nowStr}`, 170, 15);
+
+    // Summary statistics bar below header
+    doc.setTextColor(56, 34, 31);
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'bold');
+    doc.text(
+      `Total Convites: ${rsvps.length}   |   Presenças Confirmadas: ${totalAttending}   |   Total Pessoas: ${totalGuests}`,
+      14,
+      32
+    );
+
+    // Table Headers & Rows
+    // Requested fields:
+    // 1. Nome do Convidado
+    // 2. Leva Convidados? (Sim/Não)
+    // 3. Nome / Título do Acompanhante/Convidado
+    // 4. Relação
+    const tableHeaders = [['#', 'Nome do Convidado', 'Leva Convidado?', 'Nome / Título Acompanhante', 'Relação', 'Presença']];
+
+    const dataToExport = filteredRsvps.length > 0 ? filteredRsvps : rsvps;
+
+    const tableRows = dataToExport.map((r, index) => [
+      (index + 1).toString(),
+      r.name || '-',
+      r.companion === 'yes' ? 'Sim' : 'Não',
+      r.companion === 'yes' ? (r.companionName || 'Acompanhante') : '-',
+      r.relationship || '-',
+      r.attending ? 'Confirmado' : 'Pendente'
+    ]);
+
+    autoTable(doc, {
+      startY: 36,
+      head: tableHeaders,
+      body: tableRows,
+      theme: 'grid',
+      headStyles: {
+        fillColor: [56, 34, 31],
+        textColor: [243, 235, 221],
+        fontSize: 8.5,
+        fontStyle: 'bold',
+        halign: 'left',
+      },
+      bodyStyles: {
+        fontSize: 8,
+        textColor: [40, 40, 40],
+      },
+      alternateRowStyles: {
+        fillColor: [248, 245, 240],
+      },
+      columnStyles: {
+        0: { cellWidth: 10, halign: 'center' },
+        1: { cellWidth: 48 },
+        2: { cellWidth: 28, halign: 'center' },
+        3: { cellWidth: 48 },
+        4: { cellWidth: 30 },
+        5: { cellWidth: 22, halign: 'center' },
+      },
+      margin: { top: 36, left: 12, right: 12 },
+      didDrawPage: (data) => {
+        const str = `Página ${data.pageNumber}`;
+        doc.setFontSize(8);
+        doc.setTextColor(120, 120, 120);
+        doc.text(str, 196 - doc.getTextWidth(str), 287);
+      }
+    });
+
+    doc.save(`lista_convidados_casamento_${new Date().toISOString().split('T')[0]}.pdf`);
   };
 
   // Calculate Stats
@@ -490,15 +589,22 @@ export default function AdminPage() {
                 className="w-full sm:w-64 px-4 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
               />
               <button
-                onClick={handleExportCSV}
+                onClick={handleExportPDF}
                 disabled={rsvps.length === 0}
                 className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
+              >
+                <FileText className="w-3.5 h-3.5" /> Baixar PDF
+              </button>
+              <button
+                onClick={handleExportCSV}
+                disabled={rsvps.length === 0}
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F]/10 hover:bg-[#38221F]/20 text-[#38221F] border border-[#38221F]/30 text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
               >
                 <Download className="w-3.5 h-3.5" /> Exportar CSV
               </button>
               <button
                 onClick={() => setIsAddModalOpen(true)}
-                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0"
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0"
               >
                 <Plus className="w-3.5 h-3.5" /> Adicionar Convidado
               </button>
