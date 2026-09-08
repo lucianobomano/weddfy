@@ -107,12 +107,12 @@ export default function MobileMusicPlayer() {
           className="w-12 h-12 rounded-full bg-[#F3EBDD] flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform"
         >
           {isPlaying ? (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38221F">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#810100">
               <rect x="6" y="4" width="4" height="16" />
               <rect x="14" y="4" width="4" height="16" />
             </svg>
           ) : (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38221F" className="translate-x-[2px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#810100" className="translate-x-[2px]">
               <polygon points="5,3 19,12 5,21" />
             </svg>
           )}

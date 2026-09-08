@@ -16,43 +16,113 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Wedding Card container using the exact aspect ratio of CAPA.svg (349x621) */}
+      {/* Wedding Card container using exact aspect ratio of modelo.png (2426 x 4500) */}
       <motion.div
-        className="relative w-[340px] h-[605px] xs:w-[350px] xs:h-[622px] rounded-[4px] overflow-hidden select-none bg-[#38221F]"
+        onClick={onOpen}
+        className="relative w-[340px] h-[630px] xs:w-[350px] xs:h-[650px] rounded-[6px] overflow-hidden select-none bg-white cursor-pointer group"
         style={{
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 40px rgba(0, 0, 0, 0.15)',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 35px rgba(0, 0, 0, 0.08)',
         }}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
-        {/* Render the full vector CAPA.svg (includes green bg, leaves, ribbon, and bow) */}
-        <div className="absolute inset-0">
+        {/* Layer 1: Top floral arrangement */}
+        <div className="absolute top-0 inset-x-0 h-[190px] xs:h-[205px] z-0 pointer-events-none">
           <Image
-            src="/images/capa.svg"
-            alt="Convite Casamento"
+            src="/images/novas/bg flower.png"
+            alt="Flores superiores"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+
+        {/* Layer 2: Bottom floral arrangement (rotated/flipped) */}
+        <div className="absolute bottom-0 inset-x-0 h-[180px] xs:h-[195px] z-0 pointer-events-none rotate-180">
+          <Image
+            src="/images/novas/bg flower.png"
+            alt="Flores inferiores"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+        </div>
+
+        {/* Layer 3: Envelope flap overlay with shadow */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <Image
+            src="/images/novas/convite.png"
+            alt="Envelope convite"
             fill
             className="object-cover"
             priority
           />
         </div>
 
-        {/* Overlay the text "CONVITE" and the calligraphic names logo from LOGO.svg */}
-        <div className="absolute inset-x-0 top-[60px] xs:top-[70px] flex flex-col items-center text-center z-10 px-6">
-          <p
-            className="text-[11px] tracking-[0.25em] text-[#F3EBDD] font-semibold mb-6 uppercase"
-            style={{ fontFamily: 'var(--font-inter)' }}
-          >
-            CONVITE
-          </p>
-          <div className="relative w-[280px] h-[57px] select-text">
-            <Image
-              src="/images/logo.svg"
-              alt="Auriscidia e Luciano"
-              fill
-              className="object-contain"
-              priority
-            />
+        {/* Layer 4: Text Content and Wax Seal precisely positioned over the flap */}
+        <div className="absolute inset-0 z-20 pointer-events-none">
+          {/* Top Title: Convite (center ~ 29.3%) */}
+          <div className="absolute top-[28%] -translate-y-1/2 inset-x-0 text-center">
+            <h1 
+              className="text-[42px] xs:text-[46px] text-[#810100] font-normal leading-none tracking-wide"
+              style={{ fontFamily: 'var(--font-playfair)' }}
+            >
+              Convite
+            </h1>
+          </div>
+
+          {/* Curved text "TOQUE PARA ABRIR" right above the wax seal (center ~ 45%) */}
+          <div className="absolute top-[45.2%] -translate-y-1/2 inset-x-0 flex justify-center">
+            <div className="relative w-[180px] h-[34px] flex items-center justify-center">
+              <svg viewBox="0 0 200 60" className="w-full h-full overflow-visible">
+                <path id="curve" d="M 20 48 Q 100 12 180 48" fill="transparent" />
+                <text className="text-[11px] xs:text-[11.5px] font-bold fill-[#810100] tracking-[0.26em] uppercase" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <textPath href="#curve" startOffset="50%" textAnchor="middle">
+                    TOQUE PARA ABRIR
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          {/* Wax Seal (Lacre) positioned exactly over the tip of the triangle (center ~ 58.3%) */}
+          <div className="absolute top-[58.3%] -translate-y-1/2 inset-x-0 flex justify-center">
+            <motion.div 
+              className="relative w-[140px] h-[140px] xs:w-[150px] xs:h-[150px] drop-shadow-2xl cursor-pointer pointer-events-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <Image
+                src="/images/novas/lacre.png"
+                alt="Lacre de cera personalizado OM"
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
+          </div>
+
+          {/* Bottom: Names (center ~ 76.3%) */}
+          <div className="absolute top-[76.3%] -translate-y-1/2 inset-x-0 text-center">
+            <p 
+              className="text-[20px] xs:text-[22px] text-[#810100] font-normal tracking-wide leading-tight"
+              style={{ fontFamily: 'var(--font-playfair)' }}
+            >
+              Osvaldo da Silva
+            </p>
+            <p 
+              className="text-[15px] xs:text-[16px] text-[#810100] my-0.5 font-normal italic"
+              style={{ fontFamily: 'var(--font-playfair)' }}
+            >
+              &amp;
+            </p>
+            <p 
+              className="text-[20px] xs:text-[22px] text-[#810100] font-normal tracking-wide leading-tight"
+              style={{ fontFamily: 'var(--font-playfair)' }}
+            >
+              Mirian Gumbe
+            </p>
           </div>
         </div>
       </motion.div>
@@ -60,8 +130,8 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
       {/* Action Button below the card */}
       <motion.button
         onClick={onOpen}
-        className="mt-8 px-9 py-2.5 text-[#F3EBDD] text-[10px] tracking-[0.2em] font-medium rounded-full shadow-md transition-all hover:bg-[#261614] hover:shadow-lg active:scale-[0.98]"
-        style={{ background: '#38221F' }}
+        className="mt-7 px-9 py-2.5 text-[#FAFAF9] text-[10px] tracking-[0.2em] font-medium rounded-full shadow-md transition-all hover:bg-[#5a0000] hover:shadow-lg active:scale-[0.98]"
+        style={{ background: '#810100' }}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
         initial={{ opacity: 0, y: 15 }}
@@ -73,7 +143,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
 
       {/* Footer */}
       <motion.div 
-        className="mt-12 text-[9px] tracking-[0.15em] text-[#38221F]/50 uppercase font-semibold select-none"
+        className="mt-12 text-[9px] tracking-[0.15em] text-[#810100]/50 uppercase font-semibold select-none"
         style={{ fontFamily: 'var(--font-inter)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -84,7 +154,7 @@ export default function PageLanding({ onOpen }: PageLandingProps) {
           href="https://www.instagram.com/bhao.agency/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="hover:text-[#38221F] transition-colors underline decoration-[#38221F]/20 hover:decoration-[#38221F]"
+          className="hover:text-[#810100] transition-colors underline decoration-[#810100]/20 hover:decoration-[#810100]"
         >
           Bhao Agency
         </a>

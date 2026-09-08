@@ -36,3 +36,26 @@ export async function GET() {
     return NextResponse.json({ error: 'Erro ao buscar desejos.' }, { status: 500 });
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    const name = searchParams.get('name');
+
+    if (id) {
+      await db.wish.delete({ where: { id } });
+      return NextResponse.json({ success: true });
+    }
+
+    if (name) {
+      await db.wish.deleteMany({ where: { name } });
+      return NextResponse.json({ success: true });
+    }
+
+    return NextResponse.json({ error: 'ID ou Nome é obrigatório.' }, { status: 400 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Erro ao eliminar desejo.';
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
+}

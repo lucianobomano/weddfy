@@ -14,13 +14,13 @@ export default function InvitationSVG() {
       <path d="M100 65 Q150 40, 200 65 Q250 40, 300 65" stroke={GREEN} strokeWidth="0.8" fill="none" opacity="0.35" />
       <path d="M200 38 L204 44 L200 50 L196 44 Z" fill={GREEN} opacity="0.5" />
       <text x="200" y="110" textAnchor="middle" fontFamily="var(--font-script)" fontSize="42" fill={GREEN}>
-        Luciano
+        Osvaldo
       </text>
       <text x="200" y="140" textAnchor="middle" fontSize="18" fill={GREEN} opacity="0.6" fontStyle="italic">
         &amp;
       </text>
       <text x="200" y="180" textAnchor="middle" fontFamily="var(--font-script)" fontSize="42" fill={GREEN}>
-        Auriscidia
+        Mirian
       </text>
       <line x1="120" y1="210" x2="280" y2="210" stroke={GREEN} strokeWidth="0.8" opacity="0.4" />
       <path d="M195 206 L200 200 L205 206 L200 212 Z" fill={GREEN} opacity="0.5" />
@@ -31,11 +31,11 @@ export default function InvitationSVG() {
         O Nosso Casamento
       </text>
       <text x="200" y="325" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="10" fill={GREEN} letterSpacing="2" fontWeight="500">
-        26 DE JULHO DE 2026
+        16 DE OUTUBRO DE 2026
       </text>
       <line x1="150" y1="348" x2="250" y2="348" stroke={GREEN} strokeWidth="0.5" opacity="0.3" />
       <text x="200" y="380" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="9" fill={GRAY} letterSpacing="1.5" fontWeight="300">
-        IGREJA DE SÃO FRANCISCO
+        SÃO JOSÉ DE CLUNY
       </text>
       <text x="200" y="400" textAnchor="middle" fontFamily="var(--font-inter)" fontSize="8" fill={GRAY} opacity="0.7" letterSpacing="1">
         LUANDA, ANGOLA

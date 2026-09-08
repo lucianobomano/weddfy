@@ -271,7 +271,7 @@ export default function AdminPage() {
     doc.setTextColor(243, 235, 221);
     doc.setFontSize(14);
     doc.setFont('helvetica', 'bold');
-    doc.text('Luciano & Auriscidia - Lista de Convidados', 14, 15);
+    doc.text('Osvaldo & Mirian - Lista de Convidados', 14, 15);
 
     doc.setFontSize(8);
     doc.setFont('helvetica', 'normal');
@@ -392,12 +392,12 @@ export default function AdminPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F3EBDD] p-4 select-none">
-        <div className="w-full max-w-sm bg-[#F3EBDD] p-8 rounded-sm shadow-md border border-[#38221F]/25 text-center">
-          <div className="w-12 h-12 rounded-full bg-[#38221F]/10 flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-6 h-6 text-[#38221F]" />
+        <div className="w-full max-w-sm bg-[#F3EBDD] p-8 rounded-sm shadow-md border border-[#810100]/25 text-center">
+          <div className="w-12 h-12 rounded-full bg-[#810100]/10 flex items-center justify-center mx-auto mb-4">
+            <Lock className="w-6 h-6 text-[#810100]" />
           </div>
-          <h2 className="text-xl font-bold text-[#38221F] mb-1">Painel de Gestão</h2>
-          <p className="text-xs text-[#38221F]/60 mb-6">Acesso reservado aos noivos</p>
+          <h2 className="text-xl font-bold text-[#810100] mb-1">Painel de Gestão</h2>
+          <p className="text-xs text-[#810100]/60 mb-6">Acesso reservado aos noivos</p>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
@@ -410,7 +410,7 @@ export default function AdminPage() {
                   setPinError(false);
                 }}
                 className={`w-full text-center px-4 py-2 border rounded-none text-sm focus:outline-none ${
-                  pinError ? 'border-red-500 bg-red-50/50' : 'border-[#38221F]/30 focus:border-[#38221F]'
+                  pinError ? 'border-red-500 bg-red-50/50' : 'border-[#810100]/30 focus:border-[#810100]'
                 }`}
               />
               {pinError && (
@@ -419,7 +419,7 @@ export default function AdminPage() {
             </div>
             <button
               type="submit"
-              className="w-full py-2 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors"
+              className="w-full py-2 bg-[#810100] hover:bg-[#810100] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors"
             >
               Entrar
             </button>
@@ -435,14 +435,14 @@ export default function AdminPage() {
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <header className="flex flex-col sm:flex-row justify-between items-center bg-[#F3EBDD] p-6 shadow-sm border-b-2 border-[#38221F] mb-8 gap-4">
+        <header className="flex flex-col sm:flex-row justify-between items-center bg-[#F3EBDD] p-6 shadow-sm border-b-2 border-[#810100] mb-8 gap-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-full bg-[#38221F]/10">
-              <Heart className="w-6 h-6 text-[#38221F] fill-[#38221F]" />
+            <div className="p-2 rounded-full bg-[#810100]/10">
+              <Heart className="w-6 h-6 text-[#810100] fill-[#810100]" />
             </div>
             <div>
-              <h1 className="text-2xl font-extrabold text-[#38221F]">Luciano & Auriscidia</h1>
-              <p className="text-xs text-[#38221F] font-semibold tracking-wider">PAINEL DE GESTÃO DO CASAMENTO</p>
+              <h1 className="text-2xl font-extrabold text-[#810100]">Osvaldo & Mirian</h1>
+              <p className="text-xs text-[#810100] font-semibold tracking-wider">PAINEL DE GESTÃO DO CASAMENTO</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -455,7 +455,7 @@ export default function AdminPage() {
             </button>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 border border-[#38221F]/35 text-[#38221F] text-xs font-bold hover:bg-[#38221F]/10 transition-colors uppercase tracking-wider"
+              className="px-4 py-2 border border-[#810100]/35 text-[#810100] text-xs font-bold hover:bg-[#810100]/10 transition-colors uppercase tracking-wider"
             >
               Sair
             </button>
@@ -471,20 +471,20 @@ export default function AdminPage() {
         {/* Stats Grid */}
         <section className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 flex items-center justify-between">
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15 flex items-center justify-between">
             <div>
-              <p className="text-xs text-[#38221F]/60 font-semibold uppercase tracking-wider">Total Respostas</p>
-              <h3 className="text-3xl font-extrabold text-[#38221F] mt-1">{totalRSVPs}</h3>
+              <p className="text-xs text-[#810100]/60 font-semibold uppercase tracking-wider">Total Respostas</p>
+              <h3 className="text-3xl font-extrabold text-[#810100] mt-1">{totalRSVPs}</h3>
             </div>
             <div className="p-3 bg-blue-50 text-blue-600 rounded-full">
               <Users className="w-6 h-6" />
             </div>
           </div>
 
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 flex items-center justify-between">
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15 flex items-center justify-between">
             <div>
-              <p className="text-xs text-[#38221F]/60 font-semibold uppercase tracking-wider">Presença Confirmada</p>
-              <h3 className="text-3xl font-extrabold text-[#38221F] mt-1">{totalAttending}</h3>
+              <p className="text-xs text-[#810100]/60 font-semibold uppercase tracking-wider">Presença Confirmada</p>
+              <h3 className="text-3xl font-extrabold text-[#810100] mt-1">{totalAttending}</h3>
               <p className="text-[10px] text-gray-400 mt-1">Titulares de convites</p>
             </div>
             <div className="p-3 bg-green-50 text-green-600 rounded-full">
@@ -492,10 +492,10 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 flex items-center justify-between">
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15 flex items-center justify-between">
             <div>
-              <p className="text-xs text-[#38221F]/60 font-semibold uppercase tracking-wider">Acompanhantes</p>
-              <h3 className="text-3xl font-extrabold text-[#38221F] mt-1">{totalCompanionsAttending}</h3>
+              <p className="text-xs text-[#810100]/60 font-semibold uppercase tracking-wider">Acompanhantes</p>
+              <h3 className="text-3xl font-extrabold text-[#810100] mt-1">{totalCompanionsAttending}</h3>
               <p className="text-[10px] text-gray-400 mt-1">Com presenças confirmadas</p>
             </div>
             <div className="p-3 bg-purple-50 text-purple-600 rounded-full">
@@ -503,13 +503,13 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 flex items-center justify-between">
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15 flex items-center justify-between">
             <div>
-              <p className="text-xs text-[#38221F] font-bold uppercase tracking-wider">Total de Convidados</p>
-              <h3 className="text-3xl font-extrabold text-[#38221F] mt-1">{totalGuests}</h3>
+              <p className="text-xs text-[#810100] font-bold uppercase tracking-wider">Total de Convidados</p>
+              <h3 className="text-3xl font-extrabold text-[#810100] mt-1">{totalGuests}</h3>
               <p className="text-[10px] text-gray-500 mt-1">Titulares + acompanhantes</p>
             </div>
-            <div className="p-3 bg-[#38221F]/10 text-[#38221F] rounded-full">
+            <div className="p-3 bg-[#810100]/10 text-[#810100] rounded-full">
               <Heart className="w-6 h-6 fill-current" />
             </div>
           </div>
@@ -520,8 +520,8 @@ export default function AdminPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           
           {/* Link Generator */}
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15 lg:col-span-2">
-            <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider mb-4">Gerador de Links Personalizados</h3>
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15 lg:col-span-2">
+            <h3 className="text-sm font-bold uppercase text-[#810100] tracking-wider mb-4">Gerador de Links Personalizados</h3>
             <p className="text-xs text-gray-500 mb-4">
               Escreva o nome do convidado (ou casal) para gerar um link único. Ao abrir o link, o nome aparecerá pré-preenchido no convite.
             </p>
@@ -532,18 +532,18 @@ export default function AdminPage() {
                   placeholder="Ex: Maria Eduarda & João Silva"
                   value={guestNameInput}
                   onChange={(e) => handleGenerateLink(e.target.value)}
-                  className="w-full px-4 py-2 border border-[#38221F]/30 text-sm focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                  className="w-full px-4 py-2 border border-[#810100]/30 text-sm focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
                 />
               </div>
 
               {generatedLink && (
-                <div className="p-3 bg-[#F3EBDD] border border-[#38221F]/20 flex flex-col sm:flex-row justify-between items-center gap-3">
-                  <span className="text-[11px] font-mono select-all break-all text-[#38221F]/85">
+                <div className="p-3 bg-[#F3EBDD] border border-[#810100]/20 flex flex-col sm:flex-row justify-between items-center gap-3">
+                  <span className="text-[11px] font-mono select-all break-all text-[#810100]/85">
                     {generatedLink}
                   </span>
                   <button
                     onClick={handleCopyLink}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-[#38221F] text-[#F3EBDD] text-xs font-semibold uppercase hover:bg-[#38221F] transition-colors flex-shrink-0"
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-[#810100] text-[#F3EBDD] text-xs font-semibold uppercase hover:bg-[#810100] transition-colors flex-shrink-0"
                   >
                     {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {copied ? 'Copiado!' : 'Copiar'}
@@ -554,9 +554,9 @@ export default function AdminPage() {
           </div>
 
           {/* Gift Summary */}
-          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15">
-            <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider mb-4 flex items-center gap-1.5">
-              <Gift className="w-4 h-4 text-[#38221F]" /> Resumo de Presentes
+          <div className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15">
+            <h3 className="text-sm font-bold uppercase text-[#810100] tracking-wider mb-4 flex items-center gap-1.5">
+              <Gift className="w-4 h-4 text-[#810100]" /> Resumo de Presentes
             </h3>
             <div className="space-y-3">
               {Object.entries(giftStats).length === 0 ? (
@@ -564,8 +564,8 @@ export default function AdminPage() {
               ) : (
                 Object.entries(giftStats).map(([giftType, count]) => (
                   <div key={giftType} className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-xs text-[#38221F] font-medium">{giftType}</span>
-                    <span className="px-2 py-0.5 bg-[#38221F]/10 text-[#38221F] text-xs font-bold rounded-full">
+                    <span className="text-xs text-[#810100] font-medium">{giftType}</span>
+                    <span className="px-2 py-0.5 bg-[#810100]/10 text-[#810100] text-xs font-bold rounded-full">
                       {count} {count === 1 ? 'convidado' : 'convidados'}
                     </span>
                   </div>
@@ -577,34 +577,34 @@ export default function AdminPage() {
         </div>
 
         {/* Guests Table */}
-        <section className="bg-[#F3EBDD] shadow-sm border border-[#38221F]/15 mb-8">
+        <section className="bg-[#F3EBDD] shadow-sm border border-[#810100]/15 mb-8">
           <div className="p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider">Lista de Confirmações (RSVP)</h3>
+            <h3 className="text-sm font-bold uppercase text-[#810100] tracking-wider">Lista de Confirmações (RSVP)</h3>
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
               <input
                 type="text"
                 placeholder="Pesquisar convidado..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-64 px-4 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                className="w-full sm:w-64 px-4 py-1.5 border border-[#810100]/20 text-xs focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
               />
               <button
                 onClick={handleExportPDF}
                 disabled={rsvps.length === 0}
-                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#810100] hover:bg-[#5a0000] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
               >
                 <FileText className="w-3.5 h-3.5" /> Baixar PDF
               </button>
               <button
                 onClick={handleExportCSV}
                 disabled={rsvps.length === 0}
-                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F]/10 hover:bg-[#38221F]/20 text-[#38221F] border border-[#38221F]/30 text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#810100]/10 hover:bg-[#810100]/20 text-[#810100] border border-[#810100]/30 text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex-shrink-0"
               >
                 <Download className="w-3.5 h-3.5" /> Exportar CSV
               </button>
               <button
                 onClick={() => setIsAddModalOpen(true)}
-                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#38221F] hover:bg-[#261614] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0"
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#810100] hover:bg-[#5a0000] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0"
               >
                 <Plus className="w-3.5 h-3.5" /> Adicionar Convidado
               </button>
@@ -618,7 +618,7 @@ export default function AdminPage() {
               <div className="text-center py-10 text-xs text-gray-400 italic">Nenhum convidado encontrado.</div>
             ) : (
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#38221F]/10 text-[#38221F] uppercase tracking-wider text-[10px] font-bold border-b border-[#38221F]/10">
+                <thead className="bg-[#810100]/10 text-[#810100] uppercase tracking-wider text-[10px] font-bold border-b border-[#810100]/10">
                   <tr>
                     <th className="px-6 py-4">Nome</th>
                     <th className="px-6 py-4">Email</th>
@@ -631,15 +631,15 @@ export default function AdminPage() {
                     <th className="px-6 py-4 text-center">Ações</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#38221F]/10 text-[#38221F]/80">
+                <tbody className="divide-y divide-[#810100]/10 text-[#810100]/80">
                   {filteredRsvps.map((r) => (
-                    <tr key={r.id} className="hover:bg-[#38221F]/5 transition-colors">
+                    <tr key={r.id} className="hover:bg-[#810100]/5 transition-colors">
                       <td className="px-6 py-4">
                         <a 
                           href={getInvitationLink(r)} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="font-bold text-[#38221F] hover:text-[#38221F] hover:underline inline-flex items-center gap-1"
+                          className="font-bold text-[#810100] hover:text-[#810100] hover:underline inline-flex items-center gap-1"
                         >
                           {r.name}
                           <ExternalLink className="w-3 h-3 opacity-60" />
@@ -660,7 +660,7 @@ export default function AdminPage() {
                       <td className="px-6 py-4">
                         {r.companion === 'yes' ? (
                           <div className="flex flex-col">
-                            <span className="font-semibold text-[#38221F]">Sim</span>
+                            <span className="font-semibold text-[#810100]">Sim</span>
                             <span className="text-[10px] text-gray-500">{r.companionName || 'Sem nome'}</span>
                           </div>
                         ) : (
@@ -678,7 +678,7 @@ export default function AdminPage() {
                       </td>
                       <td className="px-6 py-4">
                         {r.gift ? (
-                          <span className="px-2 py-0.5 bg-[#38221F]/10 text-[#38221F] font-semibold">
+                          <span className="px-2 py-0.5 bg-[#810100]/10 text-[#810100] font-semibold">
                             {r.gift}
                           </span>
                         ) : (
@@ -703,7 +703,7 @@ export default function AdminPage() {
                             className={`p-1.5 rounded-full transition-colors ${
                               copiedId === r.id 
                                 ? 'text-green-600 bg-green-50' 
-                                : 'text-[#38221F] hover:bg-[#38221F]/10'
+                                : 'text-[#810100] hover:bg-[#810100]/10'
                             }`}
                             title="Copiar Link do Convite"
                           >
@@ -731,21 +731,21 @@ export default function AdminPage() {
         </section>
 
         {/* Wishes section */}
-        <section className="bg-[#F3EBDD] p-6 shadow-sm border border-[#38221F]/15">
-          <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider mb-6 flex items-center gap-1.5">
-            <MessageSquare className="w-4 h-4 text-[#38221F]" /> Mural de Mensagens e Desejos ({wishes.length})
+        <section className="bg-[#F3EBDD] p-6 shadow-sm border border-[#810100]/15">
+          <h3 className="text-sm font-bold uppercase text-[#810100] tracking-wider mb-6 flex items-center gap-1.5">
+            <MessageSquare className="w-4 h-4 text-[#810100]" /> Mural de Mensagens e Desejos ({wishes.length})
           </h3>
           {wishes.length === 0 ? (
             <p className="text-xs text-gray-400 italic">Ainda sem mensagens no mural.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {wishes.map((w) => (
-                <div key={w.id} className="p-4 bg-[#F3EBDD] border border-[#38221F]/15 flex flex-col justify-between">
-                  <p className="text-xs italic text-[#38221F]/80 leading-relaxed mb-4">
+                <div key={w.id} className="p-4 bg-[#F3EBDD] border border-[#810100]/15 flex flex-col justify-between">
+                  <p className="text-xs italic text-[#810100]/80 leading-relaxed mb-4">
                     "{w.message}"
                   </p>
-                  <div className="flex justify-between items-center border-t border-[#38221F]/10 pt-2 text-[10px] text-gray-500 font-semibold">
-                    <span className="text-[#38221F] font-bold">{w.name}</span>
+                  <div className="flex justify-between items-center border-t border-[#810100]/10 pt-2 text-[10px] text-gray-500 font-semibold">
+                    <span className="text-[#810100] font-bold">{w.name}</span>
                     <span>{new Date(w.createdAt).toLocaleDateString('pt-PT')}</span>
                   </div>
                 </div>
@@ -759,8 +759,8 @@ export default function AdminPage() {
       {/* Modal for manual entry */}
       {isAddModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 animate-fade-in">
-          <div className="bg-[#F3EBDD] w-full max-w-md p-6 shadow-xl border border-[#38221F]/25 relative">
-            <h3 className="text-sm font-bold uppercase text-[#38221F] tracking-wider mb-4">Adicionar Convidado Manualmente</h3>
+          <div className="bg-[#F3EBDD] w-full max-w-md p-6 shadow-xl border border-[#810100]/25 relative">
+            <h3 className="text-sm font-bold uppercase text-[#810100] tracking-wider mb-4">Adicionar Convidado Manualmente</h3>
             
             {addFormError && (
               <div className="p-3 bg-red-50 border-l-4 border-red-500 text-red-700 text-xs font-semibold mb-4">
@@ -770,24 +770,24 @@ export default function AdminPage() {
 
             <form onSubmit={handleAddGuestSubmit} className="space-y-4">
               <div>
-                <label className="text-[11px] font-semibold text-[#38221F] mb-1 block">Nome do Convidado</label>
+                <label className="text-[11px] font-semibold text-[#810100] mb-1 block">Nome do Convidado</label>
                 <input
                   type="text"
                   required
                   value={addFormName}
                   onChange={(e) => setAddFormName(e.target.value)}
-                  className="w-full px-3 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                  className="w-full px-3 py-1.5 border border-[#810100]/20 text-xs focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
                   placeholder="Ex: João da Silva"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[11px] font-semibold text-[#38221F] mb-1 block">Acompanhante?</label>
+                  <label className="text-[11px] font-semibold text-[#810100] mb-1 block">Acompanhante?</label>
                   <select
                     value={addFormCompanion}
                     onChange={(e) => setAddFormCompanion(e.target.value)}
-                    className="w-full px-3 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                    className="w-full px-3 py-1.5 border border-[#810100]/20 text-xs focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
                   >
                     <option value="no">Não</option>
                     <option value="yes">Sim</option>
@@ -795,12 +795,12 @@ export default function AdminPage() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-[#38221F] mb-1 block">Grau de Parentesco / Relação</label>
+                  <label className="text-[11px] font-semibold text-[#810100] mb-1 block">Grau de Parentesco / Relação</label>
                   <input
                     type="text"
                     value={addFormRelationship}
                     onChange={(e) => setAddFormRelationship(e.target.value)}
-                    className="w-full px-3 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                    className="w-full px-3 py-1.5 border border-[#810100]/20 text-xs focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
                     placeholder="Ex: Família Noiva, Amigo..."
                   />
                 </div>
@@ -808,12 +808,12 @@ export default function AdminPage() {
 
               {addFormCompanion === 'yes' && (
                 <div>
-                  <label className="text-[11px] font-semibold text-[#38221F] mb-1 block">Nome do Acompanhante (Opcional)</label>
+                  <label className="text-[11px] font-semibold text-[#810100] mb-1 block">Nome do Acompanhante (Opcional)</label>
                   <input
                     type="text"
                     value={addFormCompanionName}
                     onChange={(e) => setAddFormCompanionName(e.target.value)}
-                    className="w-full px-3 py-1.5 border border-[#38221F]/20 text-xs focus:outline-none focus:border-[#38221F] rounded-none bg-[#F3EBDD]"
+                    className="w-full px-3 py-1.5 border border-[#810100]/20 text-xs focus:outline-none focus:border-[#810100] rounded-none bg-[#F3EBDD]"
                     placeholder="Deixe em branco para gravar '[Nome] e Acompanhante'"
                   />
                 </div>
@@ -823,14 +823,14 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={closeAddModal}
-                  className="px-4 py-2 border border-[#38221F]/20 text-[#38221F] text-xs font-bold uppercase tracking-wider hover:bg-[#38221F]/10 transition-colors"
+                  className="px-4 py-2 border border-[#810100]/20 text-[#810100] text-xs font-bold uppercase tracking-wider hover:bg-[#810100]/10 transition-colors"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
                   disabled={addFormSubmitting}
-                  className="px-4 py-2 bg-[#38221F] hover:bg-[#38221F] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50"
+                  className="px-4 py-2 bg-[#810100] hover:bg-[#810100] text-[#F3EBDD] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50"
                 >
                   {addFormSubmitting ? 'A guardar...' : 'Guardar'}
                 </button>

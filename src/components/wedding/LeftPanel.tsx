@@ -13,21 +13,21 @@ export default function LeftPanel() {
           <path d="M1 17H27V1L14 10L1 1V17Z" stroke="rgba(255,255,255,0.5)" strokeWidth="1" fill="none" />
         </svg>
         <h1 className="text-3xl sm:text-4xl leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-          Luciano
+          Osvaldo
         </h1>
         <div className="text-lg sm:text-xl my-1 opacity-80">&amp;</div>
         <h1 className="text-3xl sm:text-4xl leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-          Auriscidia
+          Mirian
         </h1>
-        <p className="mt-3 text-[11px] sm:text-xs tracking-[0.25em] opacity-80">26.07.2026</p>
+        <p className="mt-3 text-[11px] sm:text-xs tracking-[0.25em] opacity-80">16.10.2026</p>
       </div>
-      <div className="flex-1 bg-[#F3EBDD] px-3 sm:px-4 py-4 flex flex-col justify-center">
+      <div className="flex-1 bg-[#FAFAF9] px-3 sm:px-4 py-4 flex flex-col justify-center">
         <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
           <Image
-            src="/images/01.webp"
-            alt="Luciano & Auriscidia"
+            src="/images/hero-couple.jpg"
+            alt="Osvaldo & Mirian"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="(max-width: 1024px) 100vw, 33vw"
             priority
           />

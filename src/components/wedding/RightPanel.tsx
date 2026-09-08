@@ -61,23 +61,22 @@ export default function RightPanel({ onOpenRSVP, onOpenGifts, isConfirmed = fals
 
         <button
           onClick={onOpenRSVP}
-          disabled={isConfirmed}
-          className={`w-full mt-6 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all ${
+          className={`w-full mt-6 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all cursor-pointer ${
             isConfirmed 
-              ? 'opacity-50 cursor-not-allowed text-white/70' 
+              ? 'text-white hover:bg-white/20' 
               : 'hover:opacity-90'
           }`}
           style={{ 
-            background: isConfirmed ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.15)', 
-            border: isConfirmed ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.3)' 
+            background: isConfirmed ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.15)', 
+            border: isConfirmed ? '1px solid rgba(255,255,255,0.4)' : '1px solid rgba(255,255,255,0.3)' 
           }}
         >
-          {isConfirmed ? 'Presença Confirmada' : 'Confirmar Presença'}
+          {isConfirmed ? 'Presença Confirmada ✓' : 'Confirmar Presença'}
         </button>
 
         <button
           onClick={onOpenGifts}
-          className="w-full mt-2.5 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:bg-[#F3EBDD] hover:text-[#38221F] block text-center"
+          className="w-full mt-2.5 py-2.5 text-[10px] tracking-[0.15em] uppercase rounded-sm transition-all hover:bg-[#F3EBDD] hover:text-[#810100] block text-center"
           style={{ background: 'transparent', border: '1px solid rgba(243,235,221,0.5)', color: '#F3EBDD' }}
         >
           Ver sugestões
@@ -87,15 +86,15 @@ export default function RightPanel({ onOpenRSVP, onOpenGifts, isConfirmed = fals
       {/* Bottom photo */}
       <div className="relative aspect-[16/10] overflow-hidden flex-shrink-0">
         <Image
-          src="/images/01.webp"
-          alt="Luciano & Auriscidia"
+          src="/images/hero-couple.jpg"
+          alt="Osvaldo & Mirian"
           fill
           className="object-cover"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         <div className="absolute bottom-3 left-0 right-0 text-center">
-          <p className="text-white text-[10px] tracking-[0.2em] uppercase opacity-80">Luciano & Auriscidia</p>
+          <p className="text-white text-[10px] tracking-[0.2em] uppercase opacity-80">Osvaldo & Mirian</p>
         </div>
       </div>
     </div>

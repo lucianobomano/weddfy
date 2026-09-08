@@ -5,27 +5,47 @@ import { GREEN, DARK, WHITE, LIGHT_GRAY, timelineEvents } from './constants';
 export default function MiddlePanel() {
   return (
     <div className="flex flex-col h-full">
-      <div className="bg-[#F3EBDD] px-4 sm:px-5 py-6 flex-1">
-        <div className="text-center mb-5">
+      <div className="bg-[#FAFAF9] px-4 sm:px-5 py-6 flex-1">
+        <div className="text-center mb-4">
           <p className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-1">NOSSO CASAMENTO</p>
           <h2 className="text-lg sm:text-xl tracking-wide" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 400, color: DARK }}>
-            Cerimónia Civil
+            Cerimónia Religiosa & Recepção
           </h2>
         </div>
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 text-sm text-[#888]">
-            <Clock className="w-3.5 h-3.5" style={{ color: GREEN }} />
-            <span>14h00</span>
+        <div className="text-center mb-5 flex flex-col items-center">
+          <div className="flex flex-col items-center gap-1 mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#810100]">
+              <Clock className="w-3.5 h-3.5" style={{ color: GREEN }} />
+              <span>17h00</span>
+            </div>
+            <div className="flex items-center justify-center gap-1.5 text-xs text-[#333]">
+              <MapPin className="w-3.5 h-3.5" style={{ color: GREEN }} />
+              <span className="font-semibold">São José de Cluny</span>
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-1.5 mt-2 text-sm text-[#888]">
-            <MapPin className="w-3.5 h-3.5" style={{ color: GREEN }} />
-            <span className="text-xs sm:text-sm font-medium text-[#333]">SALÃO DE FESTAS DETALHE PRECIOSO</span>
+
+          <div className="flex flex-col items-center gap-1 mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#810100]">
+              <Clock className="w-3.5 h-3.5" style={{ color: GREEN }} />
+              <span>20h00</span>
+            </div>
+            <div className="flex items-center justify-center gap-1.5 text-xs text-[#333]">
+              <MapPin className="w-3.5 h-3.5" style={{ color: GREEN }} />
+              <span className="font-semibold">Salão de Festas Solar do Camama</span>
+            </div>
           </div>
+
+          <div className="px-3 py-1 bg-[#810100]/10 border border-[#810100]/20 rounded-full mb-3">
+            <span className="text-[10px] font-bold text-[#810100] tracking-wider uppercase">
+              OBS: NÃO LEVAR CRIANÇAS.
+            </span>
+          </div>
+
           <a
             href="https://maps.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-4 px-4 py-1.5 text-[10px] tracking-[0.15em] uppercase text-[#F3EBDD] rounded-sm transition-colors hover:opacity-90 font-bold"
+            className="inline-block px-4 py-1.5 text-[10px] tracking-[0.15em] uppercase text-[#FAFAF9] rounded-sm transition-colors hover:opacity-90 font-bold"
             style={{ background: GREEN }}
           >
             Ver localização
@@ -34,7 +54,7 @@ export default function MiddlePanel() {
         <div className="space-y-0 pr-1">
           {timelineEvents.map((event, i) => (
             <div key={i} className="flex gap-3">
-              <div className="text-[11px] font-bold text-[#38221F] pt-0.5 w-12 text-right flex-shrink-0">{event.time}</div>
+              <div className="text-[11px] font-bold text-[#810100] pt-0.5 w-12 text-right flex-shrink-0">{event.time}</div>
               <div className="flex flex-col items-center flex-shrink-0">
                 <div
                   className="w-2.5 h-2.5 rounded-full border-2 mt-0.5"
@@ -43,7 +63,7 @@ export default function MiddlePanel() {
                 {i < timelineEvents.length - 1 && <div className="w-px flex-1 min-h-[20px]" style={{ background: LIGHT_GRAY }} />}
               </div>
               <div className="pb-3">
-                <p className="text-xs font-semibold text-[#38221F]">{event.title}</p>
+                <p className="text-xs font-semibold text-[#810100]">{event.title}</p>
                 {event.location && <p className="text-[10px] mt-0.5 text-[#888]">{event.location}</p>}
               </div>
             </div>
@@ -52,15 +72,15 @@ export default function MiddlePanel() {
       </div>
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
-          src="/images/01.webp"
-          alt="Luciano & Auriscidia"
+          src="/images/hero-couple.jpg"
+          alt="Osvaldo & Mirian"
           fill
           className="object-cover"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
       </div>
       {/* Dress Code — white section, centered */}
-      <div className="px-4 sm:px-5 py-6 bg-[#F3EBDD] flex flex-col items-center justify-center text-center">
+      <div className="px-4 sm:px-5 py-6 bg-[#FAFAF9] flex flex-col items-center justify-center text-center">
         <p className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-2">CÓDIGO DE VESTIMENTA</p>
         <p className="text-xl sm:text-2xl font-light" style={{ fontFamily: 'var(--font-playfair)', color: DARK }}>
           Elegante

@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
       if (g.companion === 'yes') {
         const normComp = g.companionName ? normalizeName(g.companionName) : '';
         
-        const variations = [];
+        const variations: string[] = [];
         if (normComp) {
           variations.push(`${normMain}&${normComp}`);
           variations.push(`${normMain}e${normComp}`);

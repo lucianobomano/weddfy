@@ -20,22 +20,14 @@ export async function POST(request: NextRequest) {
       message,
     } = body;
 
-    if (!name || !email) {
+    if (!name || !name.trim()) {
       return NextResponse.json(
-        { error: 'Nome e email são obrigatórios.' },
+        { error: 'O nome é obrigatório.' },
         { status: 400 }
       );
     }
 
-    // Check for an existing manual RSVP pre-registration
-    const manualGuests = await db.rSVP.findMany({
-      where: {
-        email: {
-          startsWith: 'manual-',
-        },
-      },
-    });
-
+    // Helper to normalize names for accent/case-insensitive matching
     const normalizeName = (s: string) => {
       return s
         .normalize('NFD')
@@ -44,49 +36,71 @@ export async function POST(request: NextRequest) {
         .toLowerCase();
     };
 
-    const existingManual = manualGuests.find(
+    const isAttending = attending === undefined ? true : (attending === true || attending === 'yes');
+
+    // Look for an existing guest with the same normalized name
+    const allGuests = await db.rSVP.findMany();
+    const existingGuest = allGuests.find(
       (g) => normalizeName(g.name) === normalizeName(name)
     );
 
-    const isAttending = attending === undefined ? true : (attending === true || attending === 'yes');
-
     let rsvp;
 
-    if (existingManual) {
-      // Update existing manual registration
+    if (existingGuest) {
+      // Update existing registration
       rsvp = await db.rSVP.update({
-        where: { id: existingManual.id },
+        where: { id: existingGuest.id },
         data: {
-          name,
-          email,
-          phone: phone || null,
-          companion: companion || null,
-          companionName: companionName || null,
+          name: name.trim(),
+          phone: phone || existingGuest.phone || null,
+          companion: companion || 'no',
+          companionName: companion === 'yes' ? (companionName?.trim() || null) : null,
           mealPreference: mealPreference || null,
           dietaryNeeds: dietaryNeeds || null,
           attending: isAttending,
           gift: gift || null,
-          relationship: relationship || existingManual.relationship || null,
-          message: message || null,
+          relationship: relationship || existingGuest.relationship || null,
+          message: message ? message.trim() : null,
         },
       });
     } else {
-      // Create new RSVP
+      // Generate safe unique email if email is placeholder or not unique
+      const cleanName = normalizeName(name).replace(/[^a-z0-9]/g, '-');
+      const uniqueSuffix = Math.random().toString(36).substring(2, 8);
+      const guestEmail = (email && !email.endsWith('@confirmado.com') && !email.startsWith('manual-'))
+        ? email.trim()
+        : `${cleanName || 'convidado'}-${uniqueSuffix}@confirmado.com`;
+
+      // Create new RSVP guest
       rsvp = await db.rSVP.create({
         data: {
-          name,
-          email,
+          name: name.trim(),
+          email: guestEmail,
           phone: phone || null,
-          companion: companion || null,
-          companionName: companionName || null,
+          companion: companion || 'no',
+          companionName: companion === 'yes' ? (companionName?.trim() || null) : null,
           mealPreference: mealPreference || null,
           dietaryNeeds: dietaryNeeds || null,
           attending: isAttending,
           gift: gift || null,
           relationship: relationship || null,
-          message: message || null,
+          message: message ? message.trim() : null,
         },
       });
+    }
+
+    // If a warm message is provided, also record it into Wish mural for admin panel
+    if (message && message.trim()) {
+      try {
+        await db.wish.create({
+          data: {
+            name: name.trim(),
+            message: message.trim(),
+          },
+        });
+      } catch (wishErr) {
+        console.error('Error saving wish:', wishErr);
+      }
     }
 
     return NextResponse.json(rsvp, { status: 201 });
@@ -94,7 +108,7 @@ export async function POST(request: NextRequest) {
     const message = error instanceof Error ? error.message : 'Erro interno do servidor.';
     if (message.includes('Unique')) {
       return NextResponse.json(
-        { error: 'Este email já foi utilizado para RSVP.' },
+        { error: 'Este convidado já foi registado com estes dados.' },
         { status: 409 }
       );
     }

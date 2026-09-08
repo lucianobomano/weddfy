@@ -23,8 +23,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Weddfy",
   description:
-    "Convidamos você para celebrar a união de Luciano e Auriscidia no dia 26 de Julho de 2026, em Luanda, Angola.",
-  keywords: ["casamento", "wedding", "Luciano e Auriscidia", "convite", "RSVP", "Luanda"],
+    "Convidamos você para celebrar a união de Osvaldo e Mirian no dia 16 de Outubro de 2026, em Luanda, Angola.",
+  keywords: ["casamento", "wedding", "Osvaldo e Mirian", "convite", "RSVP", "Luanda"],
   openGraph: {
     title: "Weddfy",
     description: "Convidamos você para celebrar o nosso dia especial.",
@@ -43,8 +43,8 @@ export default function RootLayout({
         className={`${greatVibes.variable} ${playfair.variable} ${inter.variable} antialiased`}
         style={{
           fontFamily: "var(--font-inter), sans-serif",
-          background: "#F3EBDD",
-          color: "#38221F",
+          background: "#FAFAF9",
+          color: "#810100",
         }}
       >
         {children}
